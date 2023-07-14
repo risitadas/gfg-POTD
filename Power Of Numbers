@@ -1,0 +1,77 @@
+
+//User function Template for Java
+
+class Solution
+{
+        
+        
+        
+        long mod = (long)1e9+7;
+        
+    long power(int N,int R)
+    {
+        //Your code here
+        
+        if(R == 0)
+        {
+            
+            return 1;
+            
+        }
+        
+        if(R == 1)
+        {
+            return N;
+            
+        }
+        
+        long result = power(N, R/2);
+        
+        if(R %2 == 0)
+        {
+            
+            result = (result * result) % mod;
+            
+        }
+        else
+        {
+            
+            result = (((N %mod) * (result % mod) % mod) * (result % mod)) % mod;
+            
+        }
+        
+        
+        
+        
+        return result;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+        /*
+        
+        static int mod = 1000000007;
+    static long power(int N,int R)
+    {
+       
+         if(R==1)return N%mod;
+       long half = power(N,R/2);
+       half = (half*half)%mod;
+       if(R%2==1)half = (half*N)%mod;
+       return half;
+        
+    }
+
+       
+        
+        */
+
+}
