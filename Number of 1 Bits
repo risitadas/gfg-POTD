@@ -1,0 +1,40 @@
+
+
+// User function Template for Java
+class Solution {
+    static int setBits(int N) 
+    {
+        // code here
+        
+        int result = 0, count = 0;
+        
+        while(N != 0)
+        {
+            
+            result = N%2;
+            N = N/2;
+            
+            if(result == 1)
+            {
+                
+                count++;
+            }
+        }
+        
+        return count;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
