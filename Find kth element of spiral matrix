@@ -1,0 +1,82 @@
+
+
+class Solution
+{
+    /*You are required to complete this method*/
+    int findK(int A[][], int n, int m, int k)
+    {
+	// Your code here	
+	
+	    
+	int colmin = 0, colmax = m-1, rowmin= 0, rowmax = n-1;
+	
+	while(k > 0)
+	{
+	    
+	    
+	    for(int i = colmin; i<= colmax; i++)
+	    {
+	        if( --k == 0)
+	        {
+	            
+	            return A[rowmin][i];
+	            
+	        }
+	    }
+	    
+	    rowmin++;
+	    
+	    for(int i = rowmin; i<= rowmax; i++)
+	    {
+	        if( --k == 0)
+	        {
+	            
+	            return A[i][colmax];
+	            
+	        }
+	    }
+	    
+	    colmax--;
+	    
+	    for(int i = colmax; i>= colmin; i--)
+	    {
+	        if( --k == 0)
+	        {
+	            
+	            return A[rowmax][i];
+	            
+	        }
+	    }
+	    
+	    rowmax--;
+	    
+	    for(int i = rowmax; i>= rowmin; i--)
+	    {
+	        if( --k == 0)
+	        {
+	            
+	            return A[i][colmin];
+	            
+	        }
+	    }
+	    
+	    colmin++;
+	    
+	    
+	    
+	    
+	}
+	
+	return -1;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    }
+}
