@@ -1,0 +1,53 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    //Function to merge the arrays.
+    public static void merge(long arr1[], long arr2[], int n, int m) 
+    {
+        // code here 
+        
+        
+        long[] dummy = new long[n+m];
+        
+        for(int i = 0;i < n; i ++)
+        {
+            
+            dummy[i] = arr1[i];
+            
+        }
+        
+        for(int j = 0;j<m;j++)
+        {
+            
+            dummy[n+j] = arr2[j];
+            
+        }
+        
+        Arrays.sort(dummy);
+        
+        for(int i = 0; i < n; i++)
+        {
+            
+            arr1[i] = dummy[i];
+            
+        }
+        
+        for(int j = 0; j < m; j++)
+        {
+            
+            arr2[j] = dummy[n+j];
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+    }
+}
