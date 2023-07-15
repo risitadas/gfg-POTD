@@ -1,0 +1,46 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    //Function to delete middle element of a stack.
+    public void deleteMid(Stack<Integer>s,int sizeOfStack)
+    {
+        // code here
+        
+        deleteMidEleofStack(s, sizeOfStack, 0);
+        
+        
+        
+        
+    }
+    
+    public void deleteMidEleofStack(Stack<Integer> stk, int size, int curr)
+    {
+        
+        if(curr == size/2)
+        {
+            
+            stk.pop();
+            return;
+            
+        }
+        
+      //  int m = stk.peek();
+       // stk.pop();
+      //  curr += 1;
+      
+      int m = stk.pop();
+      curr++;
+      
+        
+        deleteMidEleofStack(stk, size, curr);
+        
+        stk.push(m);
+        
+        
+        
+        
+    }
+}
