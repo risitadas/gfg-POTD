@@ -1,0 +1,98 @@
+class Solution {
+    public int compress(char[] chars) 
+    {
+
+        int result = 0;
+
+        for(int i = 0, count = 0; i<chars.length; i++)
+        {
+
+            count++;
+
+            if(i == chars.length - 1 || chars[i] != chars[i+1])
+            {
+
+                chars[result] = chars[i];
+
+                result++;
+                
+                if(count!= 1)
+                {
+
+                    char[] ch = String.valueOf(count).toCharArray();
+
+                    for(int m = 0; m< ch.length; m++, result++)
+                    {
+
+                        chars[result] = ch[m];
+
+                    }
+
+                    
+
+                }
+
+                count = 0;
+            }
+        }
+
+        return result;
+
+
+
+
+
+
+
+
+
+        /*
+      //  int n = chars.length;
+
+
+        int result = 0;
+
+        for(int i = 0; i< chars.length;)
+        {
+
+           final char c = chars[i];
+
+            int count = 0;
+            while(i < chars.length && chars[i] == c)
+            {
+
+                ++count;
+                ++i;
+
+            }
+
+            chars[result] = c;
+            if(count > 1)
+            {
+
+                for(final char m : String.valueOf(count).toCharArray())
+                {
+
+                    chars[result++] = m;
+
+                }
+            }
+
+
+
+        }
+
+        return result;
+
+
+        */
+
+
+
+
+
+
+
+        
+    }
+}
