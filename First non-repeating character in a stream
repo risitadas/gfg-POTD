@@ -1,0 +1,71 @@
+
+class Solution
+{
+    public String FirstNonRepeating(String A)
+    {
+        // code here
+        
+        
+        int[] count = new int[26];
+        
+        Queue<Character> que = new LinkedList<>();
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for(int i=0; i< A.length(); i++)
+        {
+            
+            char ch = A.charAt(i);
+            int value = ch - 'a';
+            
+            count[value]++;
+            
+            
+            if(count[value] <= 1)
+            {
+                
+                que.add(ch);
+                
+            }
+            else
+            {
+                
+                que.remove(ch);
+                
+            }
+            
+            
+            if(que.isEmpty())
+            {
+                
+                sb.append('#');
+                
+            }
+            else
+            {
+                
+                sb.append(que.peek());
+                
+            }
+            
+            
+            
+            
+        }
+        
+        return sb.toString();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
