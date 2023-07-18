@@ -1,0 +1,52 @@
+
+
+/*Complete the given function*/
+class GfG
+{
+    public static ArrayList<ArrayList<Integer>> uniqueRow(int a[][],int r, int c)
+    {
+        //add code here.
+        
+        
+        ArrayList<ArrayList<Integer>> ll = new ArrayList<>();
+        
+        for(int i=0;i<r;i++)
+        {
+            ArrayList<Integer> arrl = new ArrayList<>();
+            for(int j=0;j < c;j++)
+            {
+                arrl.add(a[i][j]);
+            }
+            
+            if(ll.indexOf(arrl) == -1)
+            {
+                ll.add(arrl);
+                
+            }
+        }
+        return ll;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
