@@ -1,0 +1,72 @@
+
+
+/*
+    class Node
+    {
+        int data;
+        Node next;
+        Node(int d) {data = d; next = null; }
+    }
+*/
+
+class Sol
+{
+	public static Node findUnion(Node head1,Node head2)
+	{
+	    //Add your code here.
+	    
+	    
+	    ArrayList<Integer> arrL = new ArrayList<>();
+	    
+	    while(head1 != null)
+	    {
+	    
+	        arrL.add(head1.data);
+	        head1 = head1.next;
+	        
+	    
+	    }
+	    
+	    while(head2 != null)
+	    {
+	    
+	        arrL.add(head2.data);
+	        head2 = head2.next;
+	    
+	    }
+	    
+	    Collections.sort(arrL);
+	    
+	    Node n = new Node(arrL.get(0));
+	    Node dummy = n;
+	    
+	    for(int i : arrL)
+	    {
+	    
+	        if(dummy.data != i)
+	        {
+	        
+	            dummy.next = new Node(i);
+	            dummy = dummy.next;
+	        
+	        }
+	    
+	    
+	    
+	    }
+	    
+	    
+	    return n;
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	}
+}
