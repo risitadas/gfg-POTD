@@ -1,0 +1,191 @@
+
+
+class Solution{
+    public int cutRod(int price[], int n) 
+    {
+        //code here
+        
+        int[] arr = new int[n+1];
+        arr[0] = 0;
+        
+        for(int i=1; i<=n; i++)
+        {
+            int max = Integer.MIN_VALUE;
+            
+            for(int j=0;j<i;j++)
+            {
+                max = Math.max(max, price[j] + arr[i-j-1]);
+                
+            }
+            
+            arr[i] = max;
+        }
+        
+        
+        return arr[n];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+class Solution{
+    public int cutRod(int price[], int n) 
+    {
+        //code here
+        
+        int[] arr = new int[n+1];
+        arr[0] = 0;
+        
+        for(int i=1; i<=n; i++)
+        {
+            int max = Integer.MIN_VALUE;
+            
+            for(int j=0;j<i;j++)
+            {
+                max = Math.max(max, price[j] + arr[i-j-1]);
+                
+            }
+            
+            arr[i] = max;
+        }
+        
+        
+        return arr[n];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+class Solution{
+    public int cutRod(int price[], int n) 
+    {
+        //code here
+        
+        int[] arr = new int[n+1];
+        arr[0] = 0;
+        
+        for(int i=1; i<=n; i++)
+        {
+            int max = Integer.MIN_VALUE;
+            
+            for(int j=0;j<i;j++)
+            {
+                max = Math.max(max, price[j] + arr[i-j-1]);
+                
+            }
+            
+            arr[i] = max;
+        }
+        
+        
+        return arr[n];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+class Solution{
+    public int cutRod(int price[], int n) 
+    {
+        //code here
+        
+        int[] arr = new int[n+1];
+        arr[0] = 0;
+        
+        for(int i=1; i<=n; i++)
+        {
+            int max = Integer.MIN_VALUE;
+            
+            for(int j=0;j<i;j++)
+            {
+                max = Math.max(max, price[j] + arr[i-j-1]);
+                
+            }
+            
+            arr[i] = max;
+        }
+        
+        
+        return arr[n];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+class Solution{
+    public int cutRod(int price[], int n) 
+    {
+        //code here
+        
+        int[] arr = new int[n+1];
+        arr[0] = 0;
+        
+        for(int i=1; i<=n; i++)
+        {
+            int max = Integer.MIN_VALUE;
+            
+            for(int j=0;j<i;j++)
+            {
+                max = Math.max(max, price[j] + arr[i-j-1]);
+                
+            }
+            
+            arr[i] = max;
+        }
+        
+        
+        return arr[n];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
