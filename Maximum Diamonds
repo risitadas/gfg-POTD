@@ -1,0 +1,48 @@
+
+
+//User function Template for Java
+
+class Solution {
+    static long maxDiamonds(int[] A, int N, int K) 
+    {
+        // code here
+        
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        
+        for(int i:A)
+        {
+            
+            pq.add(i);
+            
+            
+        }
+        
+        
+        long result=0;
+        
+        while(K-->0 && !pq.isEmpty())
+        {
+            result += pq.peek();
+            pq.add(pq.poll()/2);
+            
+            
+        }   
+        
+        
+        return result;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+};
