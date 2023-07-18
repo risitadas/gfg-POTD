@@ -1,0 +1,95 @@
+
+
+// User function Template for Java
+
+class Solution{
+    
+    /*
+    
+    static int MOD = 1000000007;
+
+    static int[] nCr;
+
+    static void calculateNCR() 
+    {
+        nCr = new int[1001];
+        nCr[0] = 1;
+        for (int i = 1; i <= 1000; i++) 
+        {
+            for (int j = 0; j <= i; j++) 
+            {
+                if (j == 0 || j == i) 
+                {
+                    nCr[j] = 1;
+                } 
+                
+                else 
+                {
+                    nCr[j] = (nCr[j] + nCr[j - 1]) % MOD;
+                }
+            }
+        }
+    }
+    
+    */
+    
+    static int nCr(int n, int r)
+    {
+        // code here
+        
+        int arr[] = new int [r+1];
+        arr[0]  =1;
+     
+         if(r>n)
+         {
+            return 0;
+            
+            
+         }
+        if( r== 0 || r==n)
+        {
+            return 1;
+            
+        }
+     
+        if( r > n-r)
+        {
+            r = n-r;
+        }
+       
+        int mod = 1000000007;
+        
+        for( int i = 0 ; i <= n; i++)
+        {
+             for(int  j = Math.min(i ,r) ; j>0 ; j--)
+             {
+                   arr[j] =  (arr[j]  + arr[j-1] ) %mod;
+                 
+             }
+
+            
+        }
+        
+        return arr[r];
+        
+        
+        
+        /*
+        if (r > n) 
+        {
+            return 0;
+        }
+        if (r == 0 || r == n) 
+        {
+            return 1;
+        }
+        return nCr[r];
+        
+        */
+        
+        
+        
+        
+        
+    }
+}
