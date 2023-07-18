@@ -1,0 +1,44 @@
+
+
+//User function Template for Java
+
+class Solution {
+    static int sumOfNaturals(int n) 
+    {
+        // code here
+        /*
+        int sum = 0;
+        for (int i = 1; i <= n; i++) 
+        {
+            sum = (sum + i) % 1000000007;
+        }
+        return sum;
+        */
+        /*
+        long sum = ((long)n * (n + 1)) / 2;
+        sum = sum % 1_000_000_007;
+        return (int)sum;
+        
+        */
+        
+        
+        
+        
+        long sum = ((long)n * (n + 1)) / 2;
+        int mod1 = (int)Math.pow(10,9)+7;
+        sum = sum % mod1;
+        return (int)sum;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+};
