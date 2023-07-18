@@ -1,0 +1,77 @@
+
+
+//User function Template for Java
+class Solution {
+    public static int distributeTicket(int N,int K)
+    {
+        
+        //Deque?
+        /*
+        int i=1, j=N;
+        int result = 0;
+        
+        boolean temp = false;
+        while(i<=j)
+        {
+            if(temp == false)
+            {
+                i += K;
+                result = j;
+                
+            }
+            else
+            {
+                j -= K;
+                result = i;
+            }
+            
+            temp = !temp;
+            
+        }
+        
+        return result;
+        
+        
+        */
+        
+        int start = 0, end = N+1;
+        
+        while(start < end)
+        {
+            for(int i=0;i<K;i++)
+            {
+                start++;
+                N--;
+                
+                if(N==0)
+                {
+                    return start;
+                    
+                }
+            }
+            
+            for(int i=0;i<K;i++)
+            {
+                end--;
+                N--;
+                
+                if(N==0)
+                {
+                    return end;
+                    
+                }
+            }
+        }
+        
+        return -1;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
