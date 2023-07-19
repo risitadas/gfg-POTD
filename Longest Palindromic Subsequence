@@ -1,0 +1,89 @@
+
+//User function Template for Java
+
+class Solution
+{
+    public int longestPalinSubseq(String S)
+    {
+        //code here
+        
+        int n = S.length();
+        
+        int[][] dp = new int[n][n];
+        
+        
+        // length 1 substrings are palindromic
+        for(int i = 0; i<n; i++)
+        {
+            
+            dp[i][i] = 1;
+            
+        }
+        
+        
+        // checking for length 2 substrings
+        for(int i = 0; i<n - 1; i++)
+        {
+            
+            if(S.charAt(i) == S.charAt(i+1))
+            {
+                
+                dp[i][i+1] = 2;
+                
+            }
+            else
+            {
+                
+                dp[i][i+1] = 1;
+            }
+            
+            
+        }
+        
+        
+        
+        // checking for length 3 or more substrings
+        for(int subLen = 3; subLen <= n; subLen++)
+        {
+            
+            for(int i = 0; i<n-subLen + 1; i++)
+            {
+                
+                int j = i+ subLen - 1;
+                
+                if(S.charAt(i) == S.charAt(j))
+                {
+                    
+                    dp[i][j] = dp[i+1][j-1] + 2;
+                    
+                }
+                else
+                {
+                    
+                    dp[i][j] = Math.max(dp[i][j-1], dp[i+1][j]);
+                    
+                }
+            }
+        }
+        
+        return dp[0][n-1];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
