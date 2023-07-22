@@ -1,0 +1,128 @@
+
+
+/* The structure of linked list is the following
+class Node
+{
+    int data;
+    Node next;
+    Node(int d) {
+        data = d; 
+        next = null;
+    }
+}
+*/
+
+class Solution
+{
+    //Function to remove duplicates from unsorted linked list.
+    public Node removeDuplicates(Node head) 
+    {
+         // Your code here
+         
+         if(head == null)
+         {
+             return null;
+             
+         }
+         
+         HashMap<Integer, Integer> map = new HashMap<>();
+         
+         
+         Node curr = head, dummy = curr;
+         
+         while(curr != null)
+         {
+             
+             if(map.containsKey(curr.data) == false)
+             {
+                 
+                 map.put(curr.data, 1);
+                 dummy = curr;
+                 curr = curr.next;
+                 
+             }
+             else
+             {
+                 
+                 dummy.next = curr.next;
+                 curr = dummy.next;
+                 
+             }
+         }
+         
+         
+         
+         return head;
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         /*
+         
+         
+         HashSet<Integer> hs = new HashSet<>();
+         
+         Node current = head;
+         Node prev = null;
+         
+         while(current != null)
+         {
+             
+             
+             int currVal = current.data;
+             
+             if(hs.contains(currVal))
+             {
+                 
+                 prev.next = current.next;
+                 current = null;
+                 
+             }
+             else
+             {
+                 
+                 hs.add(currVal);
+                 prev = current;
+                 
+             }
+             
+             current = prev.next;
+             
+         }
+         
+         return head;
+         
+         
+         */
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+    }
+}
