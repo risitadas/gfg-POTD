@@ -1,0 +1,197 @@
+
+
+//User function Template for Java
+
+/*
+class Node
+{
+    int data;
+    Node next;
+    Node(int data)
+    {
+        this.data = data;
+        next = null;
+    }
+}
+*/
+class Solution
+{
+    //Function to sort a linked list of 0s, 1s and 2s.
+    static Node segregate(Node head)
+    {
+        // add your code here
+        
+        if(head == null || head.next == null)
+        {
+            
+            return head;
+            
+        }
+        
+        
+        //dummy nodes 
+        Node dummy1 = new Node(0);
+        Node dummy2 = new Node(0);
+        Node dummy3 = new Node(0);
+        
+        
+        //pointers for above lists
+        Node p1 = dummy1, p2 = dummy2, p3 = dummy3;
+        
+        Node curr = head;
+        
+        while(curr != null)
+        {
+            
+            if(curr.data == 0)
+            {
+                
+                p1.next = curr;
+                p1 = p1.next;
+                curr = curr.next;
+                
+            }
+            else if(curr.data == 1)
+            {
+                
+                p2.next = curr;
+                p2 = p2.next;
+                curr = curr.next;
+                
+            }
+            else
+            {
+                
+                p3.next = curr;
+                p3 = p3.next;
+                curr = curr.next;
+                
+            }
+        }
+        
+        p1.next = (dummy2.next != null) ? (dummy2.next) : (dummy3.next);
+        
+        p2.next = dummy3.next;
+        
+        p3.next = null;
+        
+        
+        head = dummy1.next;
+        
+        
+        return head;
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
+        if(head == null || head.next == null)
+        {
+            
+            return head;
+            
+        }
+        
+        
+        
+        Node slow = head;
+        Node fast = head;
+        Node dummy = null;
+        
+        while(fast != null || fast.next != null)
+        {
+            
+            dummy = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+            
+        }
+        
+        dummy.next = null;
+        
+        Node m1 = segregate(head);
+        Node m2 = segregate(slow);
+        
+        return merge(m1, m2);
+        
+        */
+        
+        
+        
+        
+        
+    }
+    
+    /*
+    
+    
+    static Node merge(Node l1, Node l2)
+    {
+        
+        Node n = new Node(0), dummy = n;
+        
+        while(l1 != null && l2 != null)
+        {
+            
+            if(l1.data < l2.data)
+            {
+                
+                dummy.next = l1;
+                l1 = l1.next;
+                
+                
+            }
+            
+            else
+            {
+                
+                dummy.next = l2;
+                l2 = l2.next;
+                
+            }
+            
+            dummy = dummy.next;
+            
+        }
+        
+        if(l1 != null)
+        {
+            
+            dummy.next = l1;
+            
+        }
+        
+        if(l2 != null)
+        {
+            
+            dummy.next = l2;
+        }
+        
+        return dummy.next;
+        
+        
+        
+        
+        
+    }
+    
+    
+    */
+}
