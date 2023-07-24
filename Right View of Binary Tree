@@ -1,0 +1,69 @@
+
+
+//User function Template for Java
+
+
+/*Complete The Function Provided
+Given Below is The Node Of Tree
+class Node
+{
+    int data;
+    Node left, right;
+    public Node(int data)
+    {
+        this.data = data;
+         left = right = null;
+    }
+}*/
+
+
+class Solution{
+    
+    int maxLevel = 0;
+    //Function to return list containing elements of right view of binary tree.
+    ArrayList<Integer> rightView(Node node) 
+    {
+        //add code here.
+        
+        ArrayList<Integer> arr = new ArrayList<>();
+        
+        rightviewBT(arr, node, 1);
+        
+        return arr;
+        
+        
+        
+        
+        
+    }
+    
+    public void rightviewBT(ArrayList<Integer> arr, Node node, int level)
+    {
+        
+        
+        if(node == null)
+        {
+            
+            return;
+            
+        }
+        
+        if(maxLevel < level)
+        {
+            
+            arr.add(node.data);
+            maxLevel = level;
+            
+            
+            
+        }
+        
+        
+        rightviewBT(arr, node.right, level +1);
+        rightviewBT(arr, node.left, level + 1);
+
+        
+        
+        
+    }
+}
