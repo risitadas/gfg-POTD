@@ -1,0 +1,135 @@
+
+
+//User function Template for Java
+
+
+/*
+// A Binary Tree node
+class Node
+{
+    int data;
+    Node left, right;
+
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}
+*/
+
+class Spiral
+{
+    //Function to return a list containing the level order 
+    //traversal in spiral form.	
+    
+    
+    ArrayList<Integer> findSpiral(Node root) 
+    {
+        // Your code here
+        
+        
+        ArrayList<Integer> list = new ArrayList<>();
+
+        if(root == null)
+        {
+            
+            return list;
+            
+        }
+        
+        int level = 0;
+        
+        //ArrayList<Integer> list = new ArrayList<>();
+        
+        Stack<Integer> stk = new Stack<>();
+        
+        Queue<Node> que = new LinkedList<>();
+        
+        
+        que.add(root);
+        que.add(null);
+        
+        while(!que.isEmpty())
+        {
+            
+            Node curr = que.remove();
+            
+            if(curr == null)
+            {
+                
+                if(que.isEmpty())
+                {
+                    break;
+                    
+                }
+                else
+                {
+                    if(level % 2 ==0)
+                    {
+                        
+                        while(!stk.isEmpty())
+                        {
+                            
+                            list.add(stk.pop());
+                            
+                        }
+                    }
+                    
+                    que.add(null);
+                    
+                    level++;
+                    
+                }
+            }
+            else
+            {
+                if(level % 2 != 0)
+                {
+                    
+                    list.add(curr.data);
+                    
+                }
+                else
+                {
+                    
+                    stk.add(curr.data);
+                }
+                
+                if(curr.left != null)
+                {
+                    
+                    que.add(curr.left);
+                }
+                
+                if(curr.right != null)
+                {
+                    
+                    que.add(curr.right);
+                    
+                }
+            }
+        }
+        
+        while(!stk.isEmpty())
+        {
+            
+            list.add(stk.pop());
+            
+        }
+        
+        return list;
+        
+
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
