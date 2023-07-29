@@ -1,0 +1,114 @@
+
+
+//User function Template for Java
+
+class Tree
+{
+    public static float findMedian(Node root)
+    {
+        // code here.
+        
+        int[] n = new int[1];
+        
+        countNodes(root, n);
+        
+        Node[] curr = new Node[1];
+        Node[] prev = new Node[1];
+        
+        int[] x = new int[1];
+        
+        x[0] = 1;
+        
+        int med = (n[0] / 2) + 1;
+        
+        int[] found = new int[1];
+        found[0] = 0;
+        
+        helper(root, curr, prev, x, med, found);
+        
+        if(n[0] % 2 == 1)
+        {
+            
+            return curr[0].data;
+        }
+        else
+        {
+            
+            return (curr[0].data + prev[0].data) / 2.0f;
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
+    public static void countNodes(Node root, int[] n)
+    {
+        
+        
+        if(root == null)
+        {
+            return;
+            
+        }
+        
+        countNodes(root.left, n);
+        
+        n[0]++;
+        
+        countNodes(root.right, n);
+        
+        
+    }
+    
+    
+    public static void helper(Node root, Node[] curr, Node[] prev, int[]c, int m, int[] found)
+    {
+        
+        
+        if(root == null)
+        {
+            return;
+            
+        }
+        
+        helper(root.left, curr, prev, c, m, found);
+        
+        if(prev[0] == null)
+        {
+            
+            prev[0] = root;
+            c[0]++;
+            
+        }
+        else if(c[0] == m)
+        {
+            
+            c[0]++;
+            curr[0] = root;
+            found[0] = 1;
+            
+            return;
+            
+        }
+        else if(found[0] == 0)
+        {
+            
+            c[0]++;
+            prev[0] = root;
+            
+        }
+        
+        helper(root.right, curr, prev, c, m, found);
+        
+        
+        
+        
+        
+    }
+ 
+    
+    
+}
