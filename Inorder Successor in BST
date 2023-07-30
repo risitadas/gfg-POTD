@@ -1,0 +1,69 @@
+
+//User function Template for Java
+
+/*Complete the function below
+Node is as follows:
+class Node{
+	int data;
+	Node left,right;
+	Node(int d){
+		data=d;
+		left=right=null;
+	}
+}
+*/
+class Solution
+{
+    // returns the inorder successor of the Node x in BST (rooted at 'root')
+	public Node inorderSuccessor(Node root,Node x)
+    {
+          //add code here.
+          
+          
+          if(root == null || x == null)
+          {
+              
+              return null;
+              
+          }
+          
+          Node dummy = null;
+          
+          while(root != null)
+          {
+              
+              if(root.data <= x.data)
+              {
+                  
+                  root = root.right;
+                  
+              }
+              else
+              {
+                  
+                  dummy = root;
+                  root = root.left;
+                  
+              }
+          }
+          
+          return dummy;
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+    }
+}
