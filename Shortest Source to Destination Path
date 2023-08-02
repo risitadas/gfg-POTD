@@ -1,0 +1,94 @@
+
+
+// User function Template for Java
+
+class pair
+{
+    
+    int a,b,c;
+    
+    public pair(int a, int b, int c)
+    {
+        
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        
+        
+    }
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+class Solution {
+    
+    
+    int shortestDistance(int N, int M, int A[][], int X, int Y) 
+    {
+        // code here
+        
+        Queue<pair> que=new LinkedList<>();
+
+
+        que.add(new pair(0,0,0));
+        
+        int dx[]={1,-1,0,0};
+        int dy[]={0,0,1,-1};
+        
+        while(que.size() != 0)
+        {
+            pair dummy = que.remove();
+            
+            int dist = dummy.a, i = dummy.b, j = dummy.c;
+            
+            if(i == X && j == Y)
+            {
+                
+                return dist;
+            }
+            
+            for(int k=0;k<4;k++)
+            {
+                int newi = i + dx[k];
+                
+                int newj = j + dy[k];
+                
+                if(newi >= 0 && newj >= 0 && newi < N && newj < M && A[newi][newj] == 1)
+                {
+                    
+                    A[newi][newj] = 0;
+                    que.add(new pair(dist +1, newi, newj));
+                    
+                }
+                
+                
+            }
+        }
+        
+        
+        
+        return -1;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+};
