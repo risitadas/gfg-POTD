@@ -1,0 +1,137 @@
+
+
+//User function Template for Java
+
+class Solution
+{ 
+    static void reverse(Stack<Integer> s)
+    {
+        // add your code here
+        
+        rev(s);
+        
+        
+        
+    }
+    
+    
+    static void insert_at_bottom(Stack<Integer> s, int x)
+    {
+        
+        
+        if(s.size()==0)
+        {
+            
+            s.add(x);
+        }
+        else
+        {
+            
+            int y= s.peek();
+            
+            s.pop();
+            
+            insert_at_bottom(s, x);
+            
+            s.add(y);
+            
+            
+        }
+    }
+    
+    
+    static void rev(Stack<Integer> s)
+    {
+        
+        
+        if(s.size()>0)
+        {
+            
+            
+            int x=s.peek();
+            
+            s.pop();
+            
+            rev(s);
+            
+            insert_at_bottom(s, x);
+            
+            
+        }
+    }
+
+
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+//User function Template for Java
+
+class Solution
+{ 
+    static void reverse(Stack<Integer> s)
+    {
+        // add your code here
+        
+        Stack<Integer> stk1 = new Stack<>();
+        
+        Stack<Integer> stk2 = new Stack<>();
+        
+        recursion(s, stk1);
+        
+        recursion(stk1, stk2);
+        
+        recursion(stk2, s);
+
+
+
+        
+    }
+    
+    static void recursion(Stack<Integer>s, Stack<Integer>stk1)
+    {
+        
+        
+        if(s.isEmpty())
+        {
+            
+            return;
+        }
+        
+        stk1.push(s.pop());
+        
+        recursion(s, stk1);
+        
+        
+    }
+
+    
+    
+    
+    
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+//User function Template for Java
+
+class Solution
+{ 
+    static void reverse(Stack<Integer> s)
+    {
+        // add your code here
+        
+        Collections.reverse(s);
+        
+    }
+}
+
+
