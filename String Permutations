@@ -1,0 +1,134 @@
+
+
+//User function Template for Java
+
+
+class Solution
+{
+    public ArrayList<String> permutation(String S)
+    {
+        //Your code here
+        
+        
+        ArrayList<String> list = new ArrayList<>();
+        
+        permute(S, "", list);
+        
+        Collections.sort(list);
+        
+        return list;
+        
+        
+        
+        
+        
+    }
+    
+    public static void permute(String s, String str, ArrayList<String> list)
+    {
+        
+        int n = s.length();
+        
+        if(n == 0)
+        {
+            list.add(str);
+            return;
+            
+        }
+        
+        for(int i = 0; i<n; i++)
+        {
+            
+            char ch = s.charAt(i);
+            
+            String m = s.substring(0, i) + s.substring(i+1);
+            
+            permute(m, str + ch, list);
+            
+            
+            
+            
+        }
+        
+        
+    }
+	   
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+//User function Template for Java
+
+
+class Solution
+{
+    ArrayList<String> list = new ArrayList<>();
+    
+    public ArrayList<String> permutation(String S)
+    {
+        //Your code here
+        
+        permute(S, 0, S.length() - 1);
+        
+        Collections.sort(list);
+        
+        return list;
+        
+        
+        
+        
+    }
+    
+    
+    public void permute(String s, int start, int end)
+    {
+        
+        if(start == end)
+        {
+            list.add(s);
+            
+        }
+        else
+        {
+            
+            for(int i=start; i<= end; i++)
+            {
+                
+                s = swapping(s, start, i);
+                permute(s, start + 1, end);
+                s = swapping(s, start, i);
+                
+            }
+        }
+    }
+    
+    
+    public String swapping(String s, int l, int r)
+    {
+        
+        char dummy;
+        
+        char[] arr = s.toCharArray();
+        
+        dummy = arr[l];
+        arr[l] = arr[r];
+        arr[r] = dummy;
+        
+        return String.valueOf(arr);
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+	   
+}
