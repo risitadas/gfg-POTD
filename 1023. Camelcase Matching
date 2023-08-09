@@ -1,0 +1,168 @@
+class Solution {
+    public List<Boolean> camelMatch(String[] queries, String pattern) 
+    {
+        int n = pattern.length();
+
+        ArrayList<Boolean> result = new ArrayList<>();
+
+        for(String query : queries)
+        {
+
+            result.add(matchesPattern(query, pattern));
+
+
+        }
+
+        return result;
+
+
+
+
+        
+    }
+
+
+    boolean matchesPattern(String query, String pattern)
+    {
+
+
+        int index = 0, patternIndex = 0;
+
+        while (index < query.length())
+        {
+            char c = query.charAt(index);
+            if (patternIndex < pattern.length() && c==pattern.charAt(patternIndex)) 
+            {
+
+                patternIndex ++;
+            } 
+            else if (Character.isUpperCase(c))
+            {
+                 break;
+            }
+
+            index++;
+        }    
+
+
+        return  (index == query.length() && patternIndex == pattern.length());
+    }
+
+
+
+
+
+    /*
+
+    public static boolean matchesPattern(String query, String pattern)
+    {
+
+        
+        int n = query.length();
+        int i=0, j=0;
+
+        while(i < n && j < n)
+        {
+
+            if(query.charAt(i) == pattern.charAt(j))
+            {
+
+                j++;
+
+            }
+            else if(Character.isUpperCase(query.charAt(i)))
+            {
+                return false;
+
+            }
+            i++;
+
+        }
+
+        while(i < n)
+        {
+
+            if(Character.isUpperCase(query.charAt(i)))
+            {
+                return false;
+
+            }
+
+            i++;
+
+        }
+
+        return j == n;
+
+
+
+
+    }
+
+*/
+
+
+
+
+
+
+
+/*
+    public static boolean matchesPattern(String query, String pattern)
+    {
+
+
+        int index =  0;
+        int n = query.length();
+
+        for(char c : pattern.toCharArray())
+        {
+
+            while(index < n && query.charAt(index) != c)
+            {
+                index++;
+
+            }
+
+            if(index >= n)
+            {
+                return false;
+
+            }
+
+            index++;
+
+        }
+
+        //checking if remaining characters in query are uppercase
+
+        for(; index < n; index ++)
+        {
+
+            if(Character.isUpperCase(query.charAt(index)))
+            {
+
+                return false;
+
+            }
+
+        }
+
+        return true;
+
+
+
+
+
+
+
+
+    }
+
+    */
+
+
+
+
+
+}
