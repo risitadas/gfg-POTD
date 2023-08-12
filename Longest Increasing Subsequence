@@ -1,0 +1,83 @@
+
+
+
+
+class Solution 
+{
+    //Function to find length of longest increasing subsequence.
+    static int longestSubsequence(int size, int a[])
+    {
+        // code here
+        
+        ArrayList<Integer> result = new ArrayList<>();
+        result.add(a[0]);
+        
+        for(int i=1; i<a.length; i++)
+        {
+            
+            if(a[i] > result.get(result.size()-1))
+            {
+                
+                result.add(a[i]);
+                
+                
+            }
+            else
+            {
+                
+                int index = lowerBound(result, a[i]);
+                result.set(index, a[i]);
+                
+            }
+        }
+        
+        return result.size();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    public static int lowerBound(List<Integer> result, int target) 
+    {
+        
+        
+        int left = 0, right = result.size() - 1;
+
+        while (left <= right) 
+        {
+            
+            int mid = left + (right - left) / 2;
+            
+            if (result.get(mid) >= target) 
+            {
+                right = mid - 1;
+                
+            } 
+            else 
+            {
+                
+                left = mid + 1;
+            }
+        }
+
+        return left;
+    }
+    
+
+    
+
+    
+    
+    
+    
+    
+} 
