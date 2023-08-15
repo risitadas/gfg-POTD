@@ -1,0 +1,56 @@
+
+//User function Template for Java
+
+
+class Solution {
+
+    public static int maxOnes(int a[], int n) 
+    {
+        // Your code goes here
+        
+        int ones = 0, max = 0;
+        
+        for(int i=0; i<n; i++) 
+        {
+            if(a[i] == 0) 
+            {
+                
+                a[i] = 1;
+            }
+            else 
+            {
+                ones++;
+                a[i] = -1;
+            }
+            
+        }
+        
+        int maxsum = 0;
+        
+        for(int i=0; i<n; i++)
+        {
+            maxsum += a[i];
+            
+            if(maxsum > max)
+            {
+                
+                max= maxsum;
+            }
+            
+            if(maxsum < 0)
+            {
+                
+                maxsum=0;
+            }
+            
+        }
+        return max+ones;
+
+        
+        
+        
+        
+        
+        
+    }
+}
