@@ -1,0 +1,141 @@
+
+//User function Template for Java
+
+
+
+class Solution {
+    int count(int[] arr, int n, int x) 
+    {
+        // code here
+        
+        
+        int low = 0, high = n-1, mid = 0, result = -1;
+        
+        while(low<=high)
+        {
+            
+            mid = (low+high)/2;
+            
+            if(arr[mid] == x)
+            {
+                if(mid < high)
+                {
+                    
+                    if(arr[mid + 1] > x)
+                    {
+                        result = mid;
+                        break;
+                        
+                    }
+                    else
+                    {
+                        low = mid+1;
+                        
+                    }
+                }
+                else
+                {
+                    result = mid;
+                    break;
+                    
+                }
+            }
+            else if(arr[mid] > x)
+            {
+                high = mid-1;
+                
+            }
+            else
+            {
+                low = mid+1;
+                
+            }
+            
+        }
+        
+        mid=0;
+        low = 0;
+        high = n-1;
+        
+        int ans = -1;
+        
+        while(low <= high)
+        {
+            mid = (low+high)/2;
+            
+            if(arr[mid] ==x)
+            {
+                if(mid > 0)
+                {
+                    if(arr[mid-1] < x)
+                    {
+                        ans = mid;
+                        break;
+                        
+                    }
+                    else
+                    {
+                        high = mid-1;
+                    }
+                }
+                else
+                {
+                    ans = mid;
+                    break;
+                    
+                }
+            }
+            else if(arr[mid] > x)
+            {
+                high =  mid-1;
+                
+            }
+            else
+            {
+                low = mid+1;
+                
+            }
+        }
+        
+        if(result == -1)
+        {
+            return 0;
+            
+        }
+        else
+        {
+            return (result - ans) + 1;
+            
+        }
+        
+        
+    }
+}
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//User function Template for Java
+
+
+
+class Solution {
+    int count(int[] arr, int n, int x) 
+    {
+        // code here
+        
+        int count = 0;
+        for(int i=0; i<n; i++)
+        {
+            if(arr[i] == x)
+            {
+                count++;
+                
+            }
+        }
+        
+        return count;
+    }
+}
