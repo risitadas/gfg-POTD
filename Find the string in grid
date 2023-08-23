@@ -1,0 +1,86 @@
+
+//User function Template for Java
+
+class Solution
+{
+    public int[][] searchWord(char[][] grid, String word)
+    {
+        // Code here\\
+        
+        int n = grid.length;
+        int m = grid[0].length;
+        List<int[]> ansList = new ArrayList<>();
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(grid[i][j]==word.charAt(0))
+                {
+                    if(dfs(i,j,n,m,grid,word))
+                    {
+                        
+                        ansList.add(new int[]{i,j});
+                    }
+                }
+            }
+        }
+    
+
+        int[][] ans = new int[ansList.size()][2];
+        
+        for(int i=0;i<ansList.size();i++)
+        {
+        
+            ans[i]=ansList.get(i);
+        }
+        
+        return ans;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    int[] dx = {-1,-1,-1,0,1,1,1,0};
+    int[] dy = {-1,0, 1, 1, 1, 0, -1, -1};
+        
+    boolean dfs(int x, int y, int n, int m, char[][] grid, String word)
+    {
+        for(int i=0;i<8;i++)
+        {
+                int lx = x+dx[i]*(word.length()-1);
+                int ly = y+dy[i]*(word.length()-1);
+                
+                if(lx<0 || lx>=n || ly<0 || ly>=m)
+                    continue;
+                
+                int j;
+                for(j=0;j<word.length();j++)
+                {
+                    int nx = x+dx[i]*j;
+                    int ny = y+dy[i]*j;
+                    
+                    if(grid[nx][ny]!=word.charAt(j))
+                         break;
+                }
+                
+                if(j==word.length())
+                    return true;
+            }
+            
+            return false;
+        }
+        
+
+}
