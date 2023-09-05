@@ -1,0 +1,33 @@
+
+//User function Template for Java
+class Solution {
+    public List<List<Integer>> printGraph(int V, int edges[][]) 
+    {
+        
+        ArrayList<List<Integer>> undgraph = new ArrayList<>();
+        
+        for (int i = 0; i < V; i++) 
+        {
+            undgraph.add(new ArrayList<>());
+        }
+        
+        for (int i[] : edges) 
+        {
+            
+            undgraph.get(i[0]).add(i[1]);
+            undgraph.get(i[1]).add(i[0]);
+        }
+        
+        return undgraph;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
