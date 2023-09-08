@@ -1,0 +1,84 @@
+
+//User function Template for Java
+
+/*Structure of the node class is
+class Node
+{
+    int data;
+    Node left, right;
+    Node(int item){
+        data = item;
+        left = right = null;
+    }
+} */
+
+
+class Solution
+{
+    
+    int index;
+    // The given root is the root of the Binary Tree
+    // Return the root of the generated BST
+    Node binaryTreeToBST(Node root)
+    {
+       // Your code here
+       
+       index = 0;
+       ArrayList<Integer> arrL = new ArrayList<>();
+       
+       
+       inOrder(root, arrL);
+       Collections.sort(arrL);
+       helper(root, arrL);
+       
+       return root;
+       
+      
+       
+    }
+    
+    public void inOrder(Node root, ArrayList<Integer> arrL)
+    {
+        
+        if(root == null)
+        {
+            return ;
+            
+        }
+        
+        inOrder(root.left, arrL);
+        
+        arrL.add(root.data);
+        
+        inOrder(root.right, arrL);
+        
+        
+        
+        
+    }
+    
+    public void helper(Node root, ArrayList<Integer> arrL)
+    {
+        
+        if(root == null)
+        {
+            return;
+            
+        }
+        
+        helper(root.left, arrL);
+        
+        root.data = arrL.get(index);
+        index++;
+        
+        helper(root.right, arrL);
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+}
