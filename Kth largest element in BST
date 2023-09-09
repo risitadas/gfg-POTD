@@ -1,0 +1,62 @@
+
+
+//User function Template for Java
+
+/*
+class Node
+{
+    int data;
+    Node left;
+    Node right;
+    Node(int data)
+    {
+        this.data = data;
+        left=null;
+        right=null;
+    }
+}
+*/
+class Solution
+{
+    int count = 0, result = -1;
+    
+    // return the Kth largest element in the given BST rooted at 'root'
+    public int kthLargest(Node root,int K)
+    {
+        //Your code here
+        
+        getkthLargest(root, K);
+        return result;
+        
+        
+    }
+    
+    public void getkthLargest(Node root, int k)
+    {
+        
+        if(root == null || count >= k)
+        {
+            
+            return;
+            
+        }
+        
+        getkthLargest(root.right, k);
+        count++;
+        
+        if(count == k)
+        {
+            result = root.data;
+            return;
+            
+        }
+        
+        getkthLargest(root.left, k);
+       
+        
+        
+        
+    }
+    
+  
+}
