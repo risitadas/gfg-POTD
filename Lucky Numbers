@@ -1,0 +1,85 @@
+
+
+//User function Template for Java
+
+
+
+class Solution
+{
+    // Complete the function
+    // n: Input n
+    // Return True if the given number is a lucky number else return False
+    public static boolean isLucky(int n)
+    {
+        // Your code here
+        
+        int x= n, div = 2;
+        
+        while(x/div!=0)
+        {
+            if(x%div==0) 
+            {
+                return false;
+                
+            }
+            
+            x = x - x/div;
+            div++;
+            
+        }
+        return true;
+    }
+}
+
+
+----------------------------------------------------------------------------------------------
+
+
+
+
+//User function Template for Java
+
+
+
+class Solution
+{
+    // Complete the function
+    // n: Input n
+    // Return True if the given number is a lucky number else return False
+    public static boolean isLucky(int n)
+    {
+        // Your code here
+        
+        return checkLucky(n, 2);
+        
+        
+        
+        
+    }
+    
+    public static boolean checkLucky(int n, int counter)
+    {
+        
+        if(counter <= n)
+        {
+            if(n % counter == 0)
+            {
+                return false;
+                
+                
+                
+            }
+            
+            n = n-n/counter;
+            counter++;
+        
+            return checkLucky(n, counter);
+        
+            
+        }
+        else
+            {
+                return true;
+            }
+    }
+}
