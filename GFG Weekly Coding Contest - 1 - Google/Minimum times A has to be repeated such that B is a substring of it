@@ -1,0 +1,70 @@
+
+
+//User function Template for Java
+
+class Solution {
+    static int minRepeats(String A, String B) 
+    {
+        // code here
+        
+        int n = B.length(), m = A.length();
+        
+        int max = n/m+1;
+        int min = 1;
+        String S = A;
+        
+        for(int i=0; i<=max; i++)
+        {
+            if(A.contains(B))
+            {
+                return min;
+                
+            }
+            
+            A = A + S;
+            min++;
+            
+        }
+        
+        return -1;
+        
+        
+        /*
+        int n = B.length(), m = A.length();
+        
+        int count = 1;
+        String S = A;
+        
+        while(m < n)
+        {
+            A +=S;
+            count++;
+            
+        }
+        
+        if(A.contains(B))
+        {
+            return count;
+            
+        }
+        
+        A +=S;
+        count++;
+        
+        if(A.contains(B))
+        {
+            return count;
+        }
+        
+        return -1;
+        
+        */
+        
+      
+        
+        
+        
+        
+        
+    }
+};
