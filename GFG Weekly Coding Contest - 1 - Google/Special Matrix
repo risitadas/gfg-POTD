@@ -1,0 +1,112 @@
+//User function Template for Java
+
+class Solution{
+    public int minMoves(int N, int[][]matrix)
+    {
+        // code here
+        
+        
+        int[] sum = new int[51];
+        int curr = 0;
+        
+        for(int i=0;i<51;i++)
+        {
+            curr += i;
+            sum[i] = curr;
+        }
+        
+        int[][] cost = new int[N][N];
+        
+        for(int i=0;i<N;i++)
+        {
+            for(int j=0;j<N;j++)
+            {
+                int min = Integer.MAX_VALUE;
+                
+                for(int k=1;k<51;k++)
+                {
+                    min = Math.min(min, (int)Math.abs(matrix[i][j] - sum[k]));
+                }
+                
+                
+                cost[i][j] = min;
+            }
+        }
+        
+        int[] col = new int[N];
+        int[] row = new int[N];
+        
+        for(int i=0;i<N;i++)
+        {
+            int currRow = 0;
+            int currCol = 0;
+            
+            for(int j=0;j<N;j++)
+            {
+                currRow += cost[i][j];
+                currCol += cost[j][i];
+            }
+            
+            row[i] = currRow;
+            col[i] = currCol;
+            
+        }
+        
+        int min = Integer.MAX_VALUE;
+        
+        for(int i=0;i<N;i++)
+        {
+            
+            min = Math.min(min, row[i]);
+            min = Math.min(min, col[i]);
+        }
+        
+        return min;
+
+        
+        
+        
+        
+        /*
+        TreeSet<Integer> set = new TreeSet<>();
+        for(int i = 0 ;i <= 50 ; i++)
+        {
+            int x = (i*(i+1))/2;
+            set.add(x);
+        }
+        int result = Integer.MAX_VALUE;
+        
+        for(int i = 0; i < N ; i++)
+        {
+            int c = 0;
+            for(int j = 0 ; j < N ; j++)
+            {
+                int low = set.floor(matrix[i][j]);
+                int high = set.ceiling(matrix[i][j]);
+                c += Math.min(matrix[i][j] - low , high - matrix[i][j]);
+            }
+            
+            result = Math.min(result,c);
+        }
+        
+        for(int i = 0; i < N ; i++)
+        {
+            int c = 0;
+            for(int j = 0 ; j < N ; j++)
+            {
+                int low = set.floor(matrix[j][i]);
+                int high = set.ceiling(matrix[j][i]);
+                c += Math.min(matrix[j][i] - low , high - matrix[j][i]);
+            }
+            
+            result = Math.min(result,c);
+        }
+        
+        return result;
+
+        */
+        
+        
+        
+    }
+}
