@@ -1,0 +1,57 @@
+
+
+//User function Template for Java
+
+class Solution 
+{ 
+    static int[] farNumber(int N, int Arr[])
+	{    
+	    
+	    int[] result = new int[N];
+	    
+	    int[] smaller = new int[N];
+	    smaller[N-1] = Arr[N-1];
+	    
+	    for(int i=N-2; i>=0; i--)
+	    {
+	        
+	        smaller[i] = Math.min(smaller[i+1], Arr[i]);
+	        
+	    }
+	    
+	   // op[N-1] = -1;
+	   
+	    for(int i=0;i<N ; i++)
+	    {
+	        int low = i+1;
+	        int high = N-1;
+	        int ans = -1;
+	        
+	        while(low <= high)
+	        {
+	            
+	            int mid = (low + high)/2;
+	            
+	            if(smaller[mid] < Arr[i])
+	            {
+	                ans = mid;
+	                low = mid+1;
+	                
+	            }
+	            else
+	            {
+	                high = mid-1;
+	            }
+	            
+	        }
+	        
+	        result[i] = ans;
+	    }
+	    
+	    
+	    return result;
+
+	    
+        
+	}
+} 
