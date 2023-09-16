@@ -1,0 +1,57 @@
+
+
+//User function Template for Java
+
+
+class Solution
+{
+    //Function to count the number of ways in which frog can reach the top.
+    static long countWays(int n)
+    {
+        // add your code here
+        
+        long mod = 1000000007;
+        
+        if(n==1)
+        {
+            return 1;
+            
+        }
+        
+        if(n==2)
+        {
+            return 2;
+        }
+        
+        if(n==3)
+        {
+            return 4;
+            
+        }
+        
+        long x = 1, y = 2, z = 4, dummy;
+        
+        for(int i=4; i<=n; i++)
+        {
+            
+            dummy = (x+y+z) % mod;
+            x = y;
+            y = z;
+            z = dummy;
+            
+            
+        }
+        
+        return z;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+}
