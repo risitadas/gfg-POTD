@@ -1,0 +1,61 @@
+//User function Template for Java
+
+class Solution {
+    long result = 0;
+    
+    
+    public long solve(int N, int[] p, String C) 
+    {
+        // code here
+        
+        var adj = new ArrayList<ArrayList<Integer>>();
+        int i, dp[][] = new int[26][2];
+        
+        for(i = 0; i < N; i++)
+            adj.add(new ArrayList<>());
+        
+        for(i = 1; i < N; i++)
+            adj.get(p[i]).add(i);
+        
+        dfs(0, adj, dp, C.toCharArray());
+        result *= 2;
+        
+        return result;
+
+
+        
+    }
+    
+    void dfs(int n, ArrayList<ArrayList<Integer>> adj, int[][] pf, char[] c)
+    {
+        
+        result += pf[c[n] - 'a'][0];
+        
+        int[] b = new int[26], bc = new int[26];
+        
+        for(int i = 0; i < 26; i++) 
+        {
+            pf[i][0] += pf[i][1];
+            b[i] = bc[i] = pf[i][1];
+        }
+        
+        pf[c[n] - 'a'][1]++;
+        bc[c[n] - 'a']++;
+        
+        for(int e : adj.get(n)) 
+        {
+            dfs(e, adj, pf, c);
+            
+            for(int i = 0; i < 26; i++) 
+            {
+                pf[i][0] += pf[i][1] - bc[i];
+                bc[i] = pf[i][1];
+            }
+        }
+        
+        for(int i = 0; i < 26; i++)
+            pf[i][0] -= b[i];
+    }
+
+    
+}
