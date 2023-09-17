@@ -1,0 +1,28 @@
+//User function Template for Java
+
+class Solution {
+    static String solve(int A, int B) 
+    {
+        //code here
+    
+        
+        if(A % 2 == 0 && B%2==0)
+        {
+            return "He";
+            
+        }
+        else if(A%2 !=0 && B%2!=0)
+        {
+            return "She";
+        }
+        else
+        {
+            return "Punished";
+        }
+        
+        
+        
+        
+        
+    }
+}
