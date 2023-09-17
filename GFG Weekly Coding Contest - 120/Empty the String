@@ -1,0 +1,43 @@
+//User function Template for Java
+
+class Solution {
+    static int makeStringEmpty(String s) 
+    {
+        // code here
+       
+       int n = s.length();
+       
+       Stack<Character> stack = new Stack<>();
+       int len = stack.size();
+       
+       int operations = 0;
+       
+       for(char c : s.toCharArray())
+       {
+           stack.push(c);
+           
+          // if(len >= 4 && stk.peek() == 'k' && stk.get(len - 2) == 'e' && stk.get(len - 3) == 'e' && stk.get(len - 4) == 'g')
+           if(stack.size() >= 4 && stack.peek() == 'k' && stack.get(stack.size() -2) == 'e' && stack.get(stack.size() - 3) == 'e' && stack.get(stack.size() - 4) == 'g')
+           {
+               
+                stack.pop();
+                stack.pop();
+                stack.pop();
+                stack.pop();
+               
+               operations++;
+               
+           }
+           
+       }
+       
+       return stack.isEmpty() ? operations : -1;
+
+       
+       
+       
+       
+
+
+    }
+};
