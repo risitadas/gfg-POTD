@@ -1,0 +1,54 @@
+
+
+//User function Template for Java
+class Solution 
+{ 
+    long maximumBeauty(int N, int K, int B[]) 
+    { 
+        // code here
+        
+        long[][] dp = new long[N+1][N+1];
+        
+        for(int i=0; i<= N; i++)
+        {
+            Arrays.fill(dp[i], -1);
+            
+        }
+        
+        return getmaximumBeauty(N-1, K, B, dp);
+        
+        
+        
+        
+    }
+    
+    public static long getmaximumBeauty(int index, int k, int[] b, long[][] dp)
+    {
+        
+        if(k ==0)
+        {
+            return 0;
+            
+        }
+        
+        if(index <0  || k <0)
+        {
+            return Long.MIN_VALUE;
+        }
+        
+        if(dp[index][k] != -1)
+        {
+            return dp[index][k];
+            
+        }
+        
+        long pick = b[index] + getmaximumBeauty(index-2, k-1, b, dp);
+        long skip = getmaximumBeauty(index-1, k, b, dp); 
+        
+        dp[index][k] = Math.max(pick, skip);
+        
+        return dp[index][k];
+        
+    }
+    
+} 
