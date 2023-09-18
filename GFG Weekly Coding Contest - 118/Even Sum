@@ -1,0 +1,59 @@
+//User function Template for Java
+
+class Solution
+{ 
+    static int findMin(int A[], int n)
+    {
+        // add your code here
+        
+        int i, result=-1;
+        int sum = 0, count = 0;
+        
+        for ( i = 0; i < n; i++) 
+        {
+            sum += A[i];
+            
+          
+        }
+        
+        if(sum %2 == 0)
+        {
+            return 0;
+            
+        }
+        
+        for(i =0;i<n;i++)
+        {
+            
+            if(A[i] %2 ==0)
+            {
+                count=0;
+                
+                while(A[i] % 2 == 0) 
+                {
+                    A[i] /= 2;
+                    count++;
+                }
+                
+                if(result == -1)
+                {
+                    result = count;
+                }
+                else
+                {
+                    result = Math.min(result, count);
+                }
+                 
+                
+            }
+            
+        }
+       
+        return result;
+        
+        
+        
+        
+        
+    }
+}
