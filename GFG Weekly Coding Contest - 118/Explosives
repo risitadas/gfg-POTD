@@ -1,0 +1,100 @@
+
+
+// User function Template for Java
+
+class Solution {
+    static int maxBoxes(int N, int K, int C, int col[]) 
+    {
+        // code here
+        
+        int sum=0,max=0;
+        
+        for(int i=0;i<N-1;i++)
+        {
+            int count=0;
+            
+            if(col[i] ==col[i+1] && col[i]== C)
+            {
+                sum=2;
+                
+                int i1 = i-1;
+                int i2 = i+2;
+                
+                while(i1 >= 0 && i2<N && col[i1] == col[i2])
+                {
+                    i1--;
+                    i2++;
+                    count=2;
+                
+                    if(i1>=0 && col[i1]==col[i1+1])
+                    {
+                        i1--;
+                        count++;
+                    }
+                    
+                    if(i2<N && col[i2]==col[i2-1])
+                    {
+                        i2++;
+                        count++;
+                    }
+                    
+                    if(count>=3)
+                    {
+                        sum+=count;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                }
+                
+                max = Math.max(max,sum);
+            }
+            
+        }
+        
+        return max;
+
+
+/*
+        int[] count = new int[K];
+        int maxEx = 0, curr = 0;
+        
+        for(int i=0;i< N; i++)
+        {
+            int color = col[i] -1;
+            count[color]++;
+            curr++;
+            
+            
+            if(i>0 && col[i] != col[i-1])
+            {
+                
+                maxEx += curr;
+                curr = 0;
+                
+            }
+            
+        }
+        
+        maxEx += curr;
+        
+        for(int i=1; i< K;i++)
+        {
+            
+            if(count[i-1] > 0 && count[i] > 0)
+            {
+                maxEx++;
+                break;
+                
+            }
+        }
+        
+        return maxEx;
+        */
+        
+        
+        
+    }
+}
