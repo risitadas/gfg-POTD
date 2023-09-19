@@ -1,0 +1,48 @@
+
+
+class Solution {
+    
+    public static int min_operations(int n, int[] arr, int[] brr) 
+    {
+        // code here
+        
+        Queue<Integer> q=new LinkedList<>();
+        
+        for(int i : arr)
+        {
+            q.add(i);
+        }
+        
+        int i=0;
+        int result=0;
+        
+        while(i<n)
+        {
+            int y=q.remove();
+            
+            if(y==brr[i])
+            {
+                i++;
+            }
+            else
+            {
+                q.add(y);
+            }
+            
+            result++;
+        }
+        
+        return result;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+        
