@@ -1,0 +1,59 @@
+
+
+//User function Template for Java
+
+/*
+class Node{
+    int data;
+    Node left;
+    Node right;
+    Node(int data){
+        this.data = data;
+        left=null;
+        right=null;
+    }
+}
+*/
+
+class Solution{
+    int mean(Node root, int key)
+    {
+        // code here
+        
+        int floor = -1, ceil = -1;
+        
+        while(root != null)
+        {
+            if(root.data == key)
+            {
+                ceil = root.data;
+                floor = root.data;
+                break;
+            }
+            
+            
+            
+            if(key > root.data)
+            {
+                floor = root.data;
+                root = root.right;
+            }
+            else
+            {
+                ceil = root.data;
+                root = root.left;
+                
+            }
+            
+        }
+        
+        return (floor+ceil + 1)/2;
+        
+        
+        
+        
+        
+        
+        
+    }
+}
