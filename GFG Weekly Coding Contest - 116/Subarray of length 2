@@ -1,0 +1,36 @@
+
+
+//User function Template for Java
+class Solution 
+{ 
+    long maxSum(int N, int A[]) 
+    { 
+        // code here
+        
+        boolean even = true;
+        
+        long temp = 0, result = 0, low = Long.MAX_VALUE;
+         
+        for(int i=0;i<N;i++)
+        {
+            temp = (long)(N-i)*(long)(i+1)*Math.abs(A[i]);
+            result += temp;
+            low = Math.min(low, temp);
+            
+            if (A[i]<0)
+            {
+                even = !even;
+            }
+            
+        }
+        
+        return  result = (even)?result:(result-=2*low);
+
+        
+        
+        
+        
+        
+        
+    }
+} 
