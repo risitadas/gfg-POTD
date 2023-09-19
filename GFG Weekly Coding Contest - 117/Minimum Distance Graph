@@ -1,0 +1,46 @@
+
+
+//User function Template for Java
+class Solution 
+{ 
+    boolean graph(int N, int adj[][]) 
+    { 
+        // code here
+        
+        int d[][] = new int[N][N];
+        for(int i=0;i<N;i++)
+        {
+            for(int j=0;j<N;j++)
+            {
+                d[i][j]=adj[i][j];
+            }
+            
+        }
+                
+        for (int k = 0; k < N; ++k) 
+        {
+            for (int i = 0; i < N; ++i) 
+            {
+                for (int j = 0; j < N; ++j) 
+                {
+                    
+                    d[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
+                }
+            }
+        }
+        
+        for(int i=0;i<N;i++)
+        {
+            for(int j=0;j<N;j++)
+            {
+                if(d[i][j]!=adj[i][j])
+                {
+                    return false;
+                }
+            }
+        }
+                
+        return true;
+
+    }
+} 
