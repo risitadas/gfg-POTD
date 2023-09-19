@@ -1,0 +1,33 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    
+    ArrayList<Integer> rotate(int N, int D)
+    {
+        // your code here
+        
+        ArrayList<Integer> result = new ArrayList<Integer>();
+ 
+        D = D%16;
+ 
+        int rightMask = (1 << D) - 1;
+        int leftMask = ((1 << D) - 1) << (16 - D);
+ 
+        int left = (leftMask & N)>> (16 - D);
+        int right = (rightMask & N) << (16 - D);
+ 
+        result.add(((N << D) | left)%65536);
+        result.add(((N >> D) | right)%65536);
+ 
+        return result;
+
+        
+        
+        
+        
+        
+    }
+}
