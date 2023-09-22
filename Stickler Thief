@@ -1,0 +1,35 @@
+
+
+class Solution
+{
+    //Function to find the maximum money the thief can get.
+    public int FindMaxSum(int arr[], int n)
+    {
+        // Your code here
+        
+        int inclusive_curr = arr[0];    
+        int exclusive_curr = 0;  
+        
+        int inclusive_prev = inclusive_curr;
+        int exclusive_prev = exclusive_curr;
+        
+	    for(int i = 1; i <n; i++)
+	    {
+	        
+	        exclusive_curr = Math.max(inclusive_prev, exclusive_prev);
+	        
+            inclusive_curr = exclusive_prev + arr[i];
+            
+            exclusive_prev = exclusive_curr;  
+            inclusive_prev = inclusive_curr;  
+	    }
+	    
+	    return Math.max(exclusive_curr, inclusive_curr);
+
+        
+        
+        
+        
+        
+    }
+}
