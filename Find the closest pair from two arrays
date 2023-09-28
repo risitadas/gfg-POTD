@@ -1,0 +1,61 @@
+
+
+//User function Template for Java
+
+class Solution{
+    // Function for finding maximum and value pair
+    public static ArrayList<Integer> printClosest (int arr[], int brr[], int n, int m, int x) 
+    {
+        // code here
+        
+        
+        int dummy = n;
+        n = m;
+        m = dummy;
+        
+        ArrayList<Integer> result = new ArrayList<>();
+        
+        
+        int diff = Integer.MAX_VALUE;
+        int pointerA =0, pointerB = 0;
+        
+        int left  = 0, right= n-1;
+        
+        while(left < m && right>=0)
+        {
+            
+            if(Math.abs(arr[left] + brr[right] - x) < diff)
+            {
+                pointerA =  left;
+                pointerB = right;
+                diff = Math.abs(arr[left] + brr[right] - x);
+                
+            }
+            
+            if(arr[left] + brr[right] > x)
+            {
+                right--;
+                
+            }
+            else
+            {
+                left++;
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        result.add(arr[pointerA]);
+        result.add(brr[pointerB]);
+        
+        return result;
+        
+        
+        
+        
+    }
+}
