@@ -1,0 +1,68 @@
+
+
+//User function Template for Java
+class Solution 
+{ 
+    int solve(String s, int K) 
+    { 
+        // code here\
+        
+        int n = s.length();
+        int curr = 0;
+        
+        int[] visited = new int[n];
+        
+        for(int  i =0; i<n; i++)
+        {
+            if(curr >0)
+            {
+                visited[i] = 1;
+                curr--;
+                
+                
+            }
+            
+            if(s.charAt(i) == '1')
+            {
+                curr = K;
+                
+            }
+        }
+        
+        
+        for(int i=n-1; i>=0; i--)
+        {
+            
+            if(curr  > 0)
+            {
+                visited[i] = 1;
+                curr--;
+                
+            }
+            
+            if(s.charAt(i) == '1')
+            {
+                visited[i] = 1;
+                curr = K;
+                
+            }
+        }
+        
+        int count = 0;
+        for(int i : visited)
+        {
+            count = count+i;
+            
+        }
+        
+        return count;
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+} 
