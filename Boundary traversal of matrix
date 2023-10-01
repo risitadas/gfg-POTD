@@ -1,0 +1,60 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    //Function to return list of integers that form the boundary 
+    //traversal of the matrix in a clockwise manner.
+    static ArrayList<Integer> boundaryTraversal(int matrix[][], int n, int m)
+    {
+        // code here 
+        
+        
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        
+        if(n == 1)
+        {
+            int i = 0;
+            while(i < m)
+            {
+                result.add(matrix[0][i++]);
+            }
+        }
+        else if(m == 1)
+        {
+            int i = 0;
+            while(i < n)
+            {
+                result.add(matrix[i++][0]);
+            }
+        }
+        else
+        {   
+            
+            for(int j=0;j<m;j++)
+            {
+                result.add(matrix[0][j]);
+            }
+          
+            for(int j=1;j<n;j++)
+            {    
+                result.add(matrix[j][m-1]);
+                
+            }
+          
+            for(int j=m-2;j>=0;j--)
+            {    
+                result.add(matrix[n-1][j]);
+            }            
+          
+            for(int j=n-2;j>=1;j--)
+            {    
+                result.add(matrix[j][0]);
+            }
+            
+        }   
+      
+        return result; 
+    }
+}
