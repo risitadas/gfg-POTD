@@ -1,0 +1,61 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    String colName (long n)
+    {
+        // your code here
+        
+        
+        StringBuilder result = new StringBuilder();
+
+        while (n > 0) 
+        {
+            n--;
+            result.append((char) ('A' + n % 26));
+
+            n = n / 26;
+        }
+        
+        return result.reverse().toString();
+
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
+        String result = "";
+        
+    
+    	long dummy;
+    	while(n> 0)
+    	{
+    	    n--;
+    		dummy = n%26;
+    		result += (char)('A' + dummy);
+    		n/=26;
+    	}
+    
+        int m = result.length();
+    	
+    	String colN = "";
+    	for (int  i = m -1; i>=0; i--)
+    	{
+    	    colN += result.charAt (i);
+    	}
+    	
+    	return colN;
+    	
+    	*/
+
+        
+        
+        
+    }
+}
