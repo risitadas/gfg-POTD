@@ -1,0 +1,109 @@
+
+
+// User function Template for Java
+
+class Solution {
+    // Finds decimal value of a given roman numeral
+    public int romanToDecimal(String str) 
+    {
+        // code here
+        
+        int n = str.length();
+        
+        int result = 0;
+        
+        HashMap<Character, Integer> hs = new HashMap<>();
+        
+        hs.put('I', 1);
+        hs.put('V', 5);
+        hs.put('X', 10);
+        hs.put('L', 50);
+        hs.put('C', 100);
+        hs.put('D', 500);
+        hs.put('M', 1000);
+        
+        
+        for (int i = 0; i <n; i++) 
+        {
+            int curr = hs.get(str.charAt(i));
+            
+            if (i < n -1 && hs.get(str.charAt(i + 1)) > curr) 
+            {
+                result -= curr;
+                
+            } 
+            else 
+            {
+                
+                result += curr;
+            }
+        }
+        
+        return result;
+
+        
+        
+        
+/*
+        for (int i = 0; i < n;i++) 
+        {
+          
+            int s1 = value(str.charAt(i));
+
+            if (i + 1 < n) 
+            {
+                int s2 = value(str.charAt(i + 1));
+
+             
+                if (s1 >= s2) 
+                {
+                    
+                    result = result + s1;
+                } 
+                else 
+                {
+                    result = result + s2 - s1;
+                    i++; 
+                }
+            } 
+            else 
+            {
+                result = result + s1;
+                
+            }
+        }
+
+        return result;
+        
+        */
+
+        
+    }
+    
+    
+    /*
+    int value(char r) 
+    {
+        if (r == 'I') return 1;
+        
+        if (r == 'V') return 5;
+        
+        if (r == 'X') return 10;
+        
+        if (r == 'L') return 50;
+        
+        if (r == 'C') return 100;
+        
+        if (r == 'D') return 500;
+        
+        if (r == 'M') return 1000;
+        
+        
+        return -1;
+        
+    }
+    
+    */
+    
+    
+}
