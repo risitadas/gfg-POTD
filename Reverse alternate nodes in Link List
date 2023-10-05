@@ -1,0 +1,53 @@
+
+
+/*node class of the linked list
+class Node
+{
+    int data;
+    Node next;
+    Node(int key)
+    {
+        data = key;
+        next = null;
+    }
+}*/
+class Solution
+{
+    public static void rearrange(Node odd)
+    {
+        // add your code here
+        
+        if(odd == null || odd.next == null || odd.next.next == null)
+        {
+            return;
+            
+        }
+        
+        Node even = odd.next;
+        odd.next = odd.next.next;
+        odd = odd.next;
+        even.next = null;
+        
+        while(odd !=null && odd.next !=null)
+        {
+            Node dummy = odd.next.next;
+            odd.next.next = even;
+            even = odd.next;
+            odd.next = dummy;
+            
+            
+            if(dummy != null)
+            {
+                odd = dummy;
+                
+            }
+        }
+        
+        
+        odd.next = even;
+        
+        
+        
+        
+    }
+}
