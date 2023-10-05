@@ -1,0 +1,47 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    long atMostKDistinct(String S, int K) 
+    {
+        int[] charCount = new int[26];
+        int left = 0, distinctCount = 0;
+        long result = 0;
+
+        for (int right = 0; right < S.length(); right++) 
+        {
+            char rightChar = S.charAt(right);
+            if (charCount[rightChar - 'a'] == 0) 
+            {
+                distinctCount++;
+            }
+            charCount[rightChar - 'a']++;
+
+            while (distinctCount > K) 
+            {
+                char leftChar = S.charAt(left);
+                charCount[leftChar - 'a']--;
+                if (charCount[leftChar - 'a'] == 0) 
+                {
+                    distinctCount--;
+                }
+                
+                left++;
+            }
+
+            result += right - left + 1;
+        }
+
+        return result;
+    }
+
+
+    long substrCount(String S, int K) 
+    {
+        return atMostKDistinct(S, K) - atMostKDistinct(S, K - 1);
+    }
+
+
+}
