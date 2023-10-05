@@ -1,0 +1,123 @@
+
+
+//User function Template for Java
+
+class Solution{
+    
+    ArrayList<List<Integer>> tree = new ArrayList<>();
+
+    
+    ArrayList<Long> calcPairs(int N, ArrayList<Integer> p) 
+    { 
+        // Code here
+        
+        ArrayList<Long> result = new ArrayList<>();
+        for(int i = 0; i < N; i++)
+        {
+            tree.add(new ArrayList<>());
+            result.add(0L);
+        }
+        
+        
+        for(int i = 0; i < p.size(); i++) 
+        {
+            if(p.get(i) != -1) 
+            {
+                tree.get(p.get(i)).add(i);
+                tree.get(i).add(p.get(i));
+            }
+        }
+        
+        getLCApairs(0, -1, tree, result);
+        
+        return result;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
+        ArrayList<Integer>[] graph = new ArrayList[N];
+        ArrayList<Long> result = new ArrayList<>(N);
+        ArrayList<Long> subTree = new ArrayList<>(N);
+        
+        for (int i = 0; i < N; i++) 
+        {
+            graph[i] = new ArrayList<>();
+            result.add(1L);
+            subTree.add(0L);
+        }
+        
+        for (int i = 1; i < N; i++) 
+        {
+            graph[p.get(i)].add(i);
+            
+        }
+        
+        dfs(graph, result, subTree, 0);
+        
+        return result;
+        
+        */
+
+        
+    } 
+    
+    
+    public long getLCApairs(int curr, int par, ArrayList<List<Integer>> tree, ArrayList<Long> result)
+    {
+        
+        
+        long count = 1;
+        long totalAns = 1;
+        
+        for(int i : tree.get(curr)) 
+        {
+            if(i == par) 
+            {
+                continue;
+            }
+            
+            long iCount = getLCApairs(i, curr, tree, result);
+            totalAns += (iCount * count);
+            count += iCount;
+        }
+        
+        result.set(curr, totalAns);
+        
+        return count;
+    }
+
+        
+        
+     
+    
+    /*
+    public void dfs(ArrayList<Integer>[] graph, ArrayList<Long> result, ArrayList<Long> subTree, int node) 
+    {
+        
+        int sub = 1;
+        for (int i : graph[node]) 
+        {
+            dfs(graph, result, subTree, i);
+            
+            result.set(node, result.get(node) + subTree.get(i) * sub);
+            
+            sub += subTree.get(i);
+            
+            
+        }
+        
+        subTree.set(node, (long)sub);
+        
+        
+    }
+    
+    */
+
+}
