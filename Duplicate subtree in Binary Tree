@@ -1,0 +1,77 @@
+
+
+//User function Template for Java
+
+/* A Binary Tree node
+
+class Node
+{
+    int data;
+    Node left, right;
+
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}
+ */
+
+class Solution {
+    
+    
+    public void getNodeList(Node node, ArrayList<Node> nodeList) 
+    {
+        if(node == null) return;
+        
+        nodeList.add(node);
+        getNodeList(node.left, nodeList);
+        getNodeList(node.right, nodeList);
+        
+    }
+    
+    public void helper(Node node, StringBuilder pattern) 
+    {
+        if(node == null) return;
+        
+        pattern.append(node.data);
+        helper(node.left, pattern);
+        helper(node.right, pattern);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    int dupSub(Node root) 
+    {
+        // code here 
+        
+        ArrayList<Node> nodes = new ArrayList<>();
+        HashSet<String> hs = new HashSet<>();
+        
+        getNodeList(root, nodes);
+        
+        for(Node n : nodes)
+        {
+            StringBuilder pattern = new StringBuilder();
+            
+            helper(n, pattern);
+            
+            if(hs.contains(pattern.toString()) && pattern.length() >= 3) 
+            {
+                return 1;
+            }
+            
+            hs.add(pattern.toString());
+            
+            
+        }
+        return 0;
+    }
+}
