@@ -1,0 +1,66 @@
+//User function Template for Java
+
+
+class Solution
+{
+    //Function to find the nodes that are common in both BST.
+	public static ArrayList<Integer> findCommon(Node root1,Node root2)
+    {
+        //code here
+        
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        inOrder1(root1, hm);
+        
+        ArrayList<Integer> result = new ArrayList<>();
+        inOrder2(root2, hm, result);
+        
+        return result;
+        
+        
+        
+        
+    }
+    
+    public static void inOrder1(Node root, HashMap<Integer, Integer> map)
+    {
+        if(root == null)
+        {
+            return;
+        }
+        
+        inOrder1(root.left, map);
+        map.put(root.data, 1);
+        inOrder1(root.right, map);
+
+        
+        
+        
+        
+    }
+    
+    public static void inOrder2(Node root, HashMap<Integer, Integer> map, ArrayList<Integer> result)
+    {
+        
+        if(root == null)
+        {
+            return;
+        }
+        
+        inOrder2(root.left, map, result);
+        if(map.containsKey(root.data)){
+            result.add(root.data);
+        }
+        
+        
+        inOrder2(root.right, map, result);
+
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+}
