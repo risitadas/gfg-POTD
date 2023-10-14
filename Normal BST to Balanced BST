@@ -1,0 +1,67 @@
+
+
+/*class Node
+{
+    int data;
+    Node right, left;
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}*/
+
+class GfG
+{
+    Node buildBalancedTree(Node root) 
+    {
+        //Add your code here.
+        
+        ArrayList<Integer> result = new ArrayList<>();
+        
+        fill(root, result);
+        Collections.sort(result);
+        
+        Node root1 =build(result, 0, result.size() - 1);
+        return root1;
+        
+        
+        
+        
+    }
+    
+    public static Node build(ArrayList<Integer> result ,int low,int high)
+    {
+        int mid=(low+high)/2;
+        
+        if(low > high)
+        {
+            return null;
+            
+        }
+        
+        Node root = new Node(result.get(mid));
+        root.left=build(result,low ,mid-1);
+        root.right=build(result,mid+1,high);
+        
+        
+        return root;
+    }
+
+    
+    public static void  fill(Node root, ArrayList<Integer> result)
+    {
+        if(root==null)
+        {
+            return;
+        }
+        
+        result.add(root.data);
+        fill(root.left,result);
+        fill(root.right,result);
+    }
+
+    
+    
+    
+}
