@@ -1,0 +1,45 @@
+
+
+// User function Template for Java
+
+class Solution {
+    static int isPossible(int N, int arr[]) 
+    {
+        // code here
+        
+        
+        int sum=0;
+        for(int i=0;i<N;i++)
+        {
+            int number=arr[i];
+            
+            while(number>0)
+            {
+                sum+=number%10;
+                number/=10;
+            }
+        }
+        
+        if(sum %3 ==0)
+        {
+            return 1;
+            
+        }
+        else return 0;
+        
+        
+   //     return (sum % 3 ==0?1:0);
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
