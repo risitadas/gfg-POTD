@@ -1,0 +1,62 @@
+
+
+class Solution{
+    
+    public long mod = 1000000007;
+    
+    long modpow(long x, long n, long p)
+    {
+        if (n == 0)
+        {
+            return 1 % p;
+            
+        }
+            
+        long result = 1, base = x;
+        
+        
+        while (n > 0)
+        {
+            if (n % 2 == 1)
+            {
+                result = (result * base) % p;
+                n--;
+            }
+            else
+            {
+                base = (base * base) % p;
+                n /= 2;
+            }
+        }
+        
+        
+        if (result < 0)
+        {
+            result = (result + p) % p;
+            
+        }
+            
+            
+            
+        return result;
+    }    
+    
+    long numberOfPaths(int M, int N) 
+    {
+        //code here
+        
+        long path = 1;
+        
+        
+        for (long i = N; i < (M + N - 1); i++) 
+        {
+            path = (path*i) % mod;
+            long inv=modpow(i-N+1,mod -2,mod );
+            path = (path*inv)% mod;
+        }
+        
+        
+        return path;        
+    }
+
+}
