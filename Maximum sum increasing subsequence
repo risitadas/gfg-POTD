@@ -1,0 +1,60 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+	public int maxSumIS(int arr[], int n)  
+	{  
+	    //code here.
+	    
+	    int i, j, max = 0;  
+	    int maxSum[] = new int[n];  
+	 
+	    for ( i = 0; i < n; i++ )  
+	    {
+	        maxSum[i] = arr[i];  
+	        
+	    }
+	  
+	    for ( i = 1; i < n; i++ )  
+	    {
+	        
+	        for ( j = 0; j < i; j++ )  
+	        {
+	            
+	            if (arr[i] > arr[j] && maxSum[i] < maxSum[j] + arr[i])  
+	            {
+	                maxSum[i] = maxSum[j] + arr[i]; 
+	                
+	            }
+	        }
+	    }
+	  
+	    for ( i = 0; i < n; i++ )  
+	    {
+	        
+	        if ( max < maxSum[i] )  
+	        {
+	            max = maxSum[i];
+	            
+	        } 
+	    } 
+	  
+	    return max;  
+
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	}  
+}
