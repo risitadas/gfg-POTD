@@ -1,0 +1,38 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    public int is_bleak(int n)
+    {
+        // Code here
+        
+        
+        for(int i=1; i<=Math.min(31,n); i++)
+        {
+            
+            int num = n-i, count=0;
+            
+            while(num > 0)
+            {
+                count += num & 1;
+                num >>= 1;
+                
+            }
+            
+            if(count == i)
+            {
+                
+                return 0;
+            }
+            
+        }
+        
+        return 1;
+
+        
+        
+        
+    }
+}
