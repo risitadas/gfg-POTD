@@ -1,0 +1,62 @@
+
+
+// User function Template for Java
+
+class Solution {
+    int minDist(int a[], int n, int x, int y) 
+    {
+        // code here
+        
+        int xi = -1, yi = -1;
+        int result = Integer.MAX_VALUE;
+
+        for (int i = 0; i < n; i++) 
+        {
+            if (a[i] == x) 
+            {
+                xi = i;
+
+                if (yi != -1)
+                {
+                    result = Math.min(Math.abs(xi - yi ), result);
+                    
+                }
+                
+            
+            } 
+            else if (a[i] == y) 
+            {
+                yi = i;
+
+                if (xi != -1)
+                {
+                    
+                    result = Math.min(Math.abs(xi - yi), result);
+                    
+                }
+                    
+            }
+        }
+
+        if (result == Integer.MAX_VALUE) 
+        {
+            return -1;
+        }
+        
+        return result;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
