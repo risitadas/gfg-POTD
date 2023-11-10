@@ -1,0 +1,46 @@
+
+
+//User function Template for Java
+class Solution{
+    static String printMinNumberForPattern(String S)
+    {
+        // code here
+        
+        
+        String result = "";
+        Stack<Integer> st = new Stack<>();
+        int num = 1;
+        
+        for(int i=0;i<S.length();i++)
+        {
+            st.push(num);
+            num++;
+            
+            if(S.charAt(i) == 'I')
+            {
+                while(!st.isEmpty())
+                {
+                    result += Integer.toString(st.pop());
+                    
+                }
+                
+            }
+            
+        }
+        
+        st.push(num);
+        
+        while(!st.isEmpty())
+        {
+            result += Integer.toString(st.pop());
+            
+        }
+        
+        return result;
+
+
+        
+        
+        
+    }
+}
