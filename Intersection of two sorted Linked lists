@@ -1,0 +1,67 @@
+
+
+/* Node of a linked list
+ class Node {
+   int data;
+    Node next;
+    Node(int d)  { data = d;  next = null; }
+}
+*/
+
+class Solution
+{
+   public static Node findIntersection(Node head1, Node head2)
+    {
+        // code here.
+        
+        Node a = head1, b = head2, result = null, head = null;
+        
+        while( a!= null && b != null)
+        {
+            if(a.data < b.data)
+            {
+                a = a.next;
+                
+            }
+            else if(a.data > b.data)
+            {
+                b = b.next;
+            }
+            else
+            {
+                Node temp = new Node(a.data);
+                
+                if(head == null)
+                {
+                    head = temp;
+                    
+                }
+                else
+                {
+                    result.next = temp;
+                    
+                    
+                    
+                }
+                result = temp;
+                a = a.next;
+                b= b.next;
+                
+            }
+            
+        }
+        
+        return head;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
