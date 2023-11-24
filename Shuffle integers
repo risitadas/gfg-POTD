@@ -1,0 +1,64 @@
+//User function Template for Java
+
+
+
+//User function Template for Java
+
+
+
+
+
+class  Solution
+{
+    
+    public static void getShuffleArray(long[] nums, int x, int y, long[] result, int i)
+    {
+      //  int n = nums.length;
+        if(i == nums.length)
+        {
+            return;
+            
+        }
+        
+        
+        if(i %2 ==0)
+        {
+            result[i] = nums[x];
+            x++;
+            
+        }
+        else
+        {
+            result[i] = nums[y];
+            y++;
+            
+        }
+        
+        getShuffleArray(nums, x, y, result, i+1);
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    void shuffleArray(long arr[], int n)
+    {
+        // Your code goes here
+        
+        long[] result = new long[n];
+       // int len = result.length;
+        getShuffleArray(arr, 0, n/2, result, 0);
+        
+        for(int i=0;i<result.length; i++)
+        {
+            arr[i] = result[i];
+            
+        }
+        
+        
+        
+    }
+}
