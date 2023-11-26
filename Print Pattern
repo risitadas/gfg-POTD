@@ -1,0 +1,44 @@
+
+
+//User function Template for Java
+
+class Solution{
+    
+    ArrayList<Integer> result=new ArrayList<>();
+    
+    public List<Integer> pattern(int N)
+    {
+        // code here
+        
+        getPattern(N, N , 0);
+        return result;
+    }
+    
+    
+    void getPattern(int curr, int n, int pattern)
+    {
+        if(curr <= 0)
+        {
+            pattern = 1;
+        }
+        
+        result.add(curr);
+        
+        if(curr==n && pattern==1)
+        {
+            return;
+        }
+        
+        if(pattern == 0)
+        {
+            getPattern(curr-5,n,pattern);
+            
+        }
+        else
+        {
+            getPattern(curr+5,n,pattern);
+            
+        }
+    }
+
+}
