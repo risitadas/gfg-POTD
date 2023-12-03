@@ -1,0 +1,66 @@
+//User function Template for Java
+
+/*Structure of the Node of the BST is as
+class Node
+{
+	int data;
+	Node left, right;
+
+	Node(int val) {
+		data = val;
+		left = right = null;
+	}
+}
+*/
+
+class Solution
+{
+    public static void addToSet(Node root, HashSet<Integer> set) 
+    {
+	    if (root == null) 
+	    {
+	        return;
+	    }
+	    
+	    set.add(root.data);
+	    addToSet(root.left, set);
+	    addToSet(root.right, set);
+	}
+	
+	public static void countPair(Node root, HashSet<Integer> set, int x, int[] count) 
+	{
+	    if (root == null)
+	    {
+	        return;
+	    }
+	    
+	    if (set.contains(x - root.data)) 
+	    {
+	        count[0]++;
+	    }
+	    
+	    countPair(root.left, set, x, count);
+	    countPair(root.right, set, x, count);
+	    
+	}
+
+
+
+	public static int countPairs(Node root1, Node root2, int x)
+	{
+		// Code here
+		
+		HashSet<Integer> set = new HashSet<>();
+		int[] count = {0};
+		
+		addToSet(root1, set);
+		countPair(root2, set, x, count);
+		
+		return count[0];
+
+		
+		
+		
+		
+	}
+}
