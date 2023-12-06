@@ -1,0 +1,45 @@
+
+
+// User function Template for Java
+
+class Solution {
+    int countX(int L, int R, int X) 
+    {
+        // code here
+        
+        int result = 0;
+        for(int i=L+1; i<R; i++)
+        {
+            result += count(i, X);
+            
+        }
+        
+        return result;
+        
+        
+        
+        
+        
+    }
+    
+    public int count(int i, int X)
+    {
+        int result = 0;
+        while(i>0)
+        {
+            if(i%10 == X)
+            {
+                result++;
+                
+            }
+            i= i/10;
+            
+        }
+        
+        return result;
+    }
+    
+    
+    
+    
+};
