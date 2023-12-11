@@ -1,0 +1,41 @@
+
+
+class Solution {
+    public int antiqueItems(int n, int items[], int price[])
+    {
+        int result = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        
+        for(int i = 0; i < n; i++)
+        {
+            int curr = map.getOrDefault(items[i], Integer.MAX_VALUE);
+            
+            if(price[i] < curr)
+            {
+                map.put(items[i], price[i]);
+                
+            }
+            
+        }
+        
+        
+        for(int x : map.values())
+        {
+            result += x;
+            
+        }
+        return result;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
