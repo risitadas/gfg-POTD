@@ -1,0 +1,52 @@
+
+
+
+//User function Template for Java
+
+class GFG
+{
+    
+    int cap;
+    
+    HashMap<String, Integer> map;
+    
+    public GFG(int cap)
+    {
+        // Constructor
+        
+        this.cap=cap;
+       map = new HashMap<>();
+        
+    }
+    
+    
+    public boolean judgeOrNot(String submissionId)
+    {
+        // Complete the function.
+        
+        String str[]=submissionId.split("[@:]",0);
+        
+        int time=Integer.parseInt(str[1])*3600+Integer.parseInt(str[2])*60+Integer.parseInt(str[3]);
+        
+        if(!map.containsKey(str[0])||check(map.get(str[0]),time,cap))
+        {
+            
+            map.put(str[0],time);
+            return true;
+        }
+        
+        return false;
+        
+        
+    }
+    
+    public boolean check(int prev,int curr,int diff)
+    {
+        if(curr<prev)
+        {
+            curr+=86400;
+        }
+        
+        return curr-prev>=diff;
+    }
+}
