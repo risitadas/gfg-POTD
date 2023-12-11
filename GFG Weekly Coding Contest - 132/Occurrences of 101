@@ -1,0 +1,45 @@
+//User function Template for Java
+
+class Solution{
+    public int count101(long n)
+    {
+        // Code Here
+        
+        int count = 0;
+        
+        for(int i = 1; i < 63; i++)
+        {
+            if((1 & (n >> i)) == 0)
+            {
+                int l = 0, r = 0;
+                
+                
+                for(int j = 0; j < i; j++)
+                {
+                    if((1 & (n >> j)) == 1)
+                    {
+                        l++;
+                        
+                    }
+                    
+                }
+                
+                for(int j = i + 1; j < 64; j++)
+                {
+                    if((1 & (n >> j)) == 1)
+                    {
+                        r++;
+                        
+                    }
+                    
+                }
+                
+                count += l * r;
+            }
+            
+        }
+        
+        return count;
+
+    }
+}
