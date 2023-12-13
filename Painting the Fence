@@ -1,0 +1,29 @@
+//User function Template for Java
+
+
+class Solution
+{
+    long MOD = 1000000007;
+    long countWays(int n,int k)
+    {
+        //code here.
+        long similar = 0, different = k;
+        long[] dp = new long[n + 1];
+
+        Arrays.fill(dp, 0);
+        dp[1] = k;
+
+        
+
+        for (int i = 2; i <= n; i++) 
+        {
+            similar = different;
+            different = dp[i - 1] * (k - 1) %MOD;
+            dp[i] = (similar+different) %MOD;
+            
+        }
+
+        return dp[n];
+    }
+}
+
