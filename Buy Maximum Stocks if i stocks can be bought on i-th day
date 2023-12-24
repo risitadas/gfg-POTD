@@ -1,0 +1,43 @@
+
+class Solution {
+    public static int buyMaximumProducts(int n, int k, int[] price) 
+    {
+        // code here
+        
+        int result =0;
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        
+        for(int i=0; i<n;i++)
+        {
+            map.put(price[i], map.getOrDefault(price[i],0)+i+1);
+        }
+        
+        
+        for(Map.Entry<Integer,Integer> entry : map.entrySet())
+        {
+            while(entry.getValue()>0 && k>= entry.getKey())
+            {
+                
+                k-= entry.getKey();
+                result++;
+                entry.setValue(entry.getValue()-1);
+            }
+            
+        }
+        return result;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+        
