@@ -1,0 +1,54 @@
+
+
+
+class Solution {
+    public static boolean isPossible(int N, int[] coins) 
+    {
+        // code here
+        
+        
+        
+        
+        return newYearRes(0, coins, N, 0);
+        
+        
+        
+        
+        
+    }
+    
+    public static boolean newYearRes(int index, int coins[], int n, int sum)
+    {
+        int size = coins.length;
+        
+        if(sum!=0&&(sum%2024==0||sum%20==0||sum%24==0))
+        {
+            return true;
+            
+        }
+        if(index == size)
+        {
+            return false;
+        }
+        
+        boolean temp1=newYearRes(index+1, coins, n, sum+ coins[index]);
+        
+        if(temp1==true) 
+        {
+            return true;
+            
+        }
+        
+        boolean temp2=newYearRes(index+1 ,coins , n, sum);
+        
+        if(temp2==true) 
+        {
+            return true;
+        }
+        
+        
+        return false;
+    }
+
+}
+        
