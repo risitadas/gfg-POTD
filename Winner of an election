@@ -1,0 +1,37 @@
+
+//User function Template for Java
+
+
+class Solution
+{
+    //Function to return the name of candidate that received maximum votes.
+    public static String[] winner(String arr[], int n)
+    {
+        // add your code
+        
+        
+        TreeMap<String,Integer> map=new TreeMap<>();                              
+        
+        for(String s:arr)
+        {
+            map.put(s,map.getOrDefault(s,0)+1);
+        }
+        
+        String result ="";
+        int max=Integer.MIN_VALUE;
+        
+        for(String s:map.keySet())
+        {
+            int  temp = map.get(s);
+            
+            if(temp > max)
+            {
+                max=temp;
+                result = s;
+            }
+        }
+        String res[]={result ,String.valueOf(max)};
+        return res;
+
+    }
+}
