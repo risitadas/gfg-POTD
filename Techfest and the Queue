@@ -1,0 +1,61 @@
+
+
+
+class Solution {
+    public static long sumOfPowers(long a, long b) 
+    {
+        // code here
+        
+        long count = 0;
+        
+        for(long i=a;i<=b;i++)
+        {
+           
+            count+=primeFactors(i);
+            
+        }
+        
+        return count;
+
+        
+        
+        
+        
+    }
+    
+    
+    public static long primeFactors(long n)
+    {
+        long count=0;
+        
+        for(long i=2;i*i<=n;i++)
+        {
+            while(n%i==0)
+            {
+                count++;
+                n/=i;
+                
+            }
+            
+        }
+        
+        if(n>1)
+        {
+            count++;
+        }
+        
+        return count;
+
+
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+}
+        
