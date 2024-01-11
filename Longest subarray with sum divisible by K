@@ -1,0 +1,34 @@
+class Solution{
+    int longSubarrWthSumDivByK(int a[], int n, int k)
+    {
+        // Complete the function
+        
+        
+       HashMap<Integer, Integer> map=new HashMap<>();
+       map.put(0, -1);
+       
+       int result=0, sum=0;
+       
+       for(int i=0;i<n;i++)
+       {
+           sum=(sum+a[i])%k;
+           
+           if(sum<0)
+           {
+               sum=k+sum;
+               
+           }
+           if(map.containsKey(sum))
+           {
+               result=Math.max(result, i-map.get(sum));
+               
+           }
+           else map.put(sum, i);
+       }
+       return result;
+
+       
+    }
+ 
+}
+
