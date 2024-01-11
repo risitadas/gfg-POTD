@@ -1,0 +1,62 @@
+
+// User function Template for Java
+
+class Solution {
+    public String removeKdigits(String S, int K) 
+    {
+        // code here
+        
+        int n = S.length();
+        if(n == K)
+        {
+            return "0";
+        }
+        
+        int count = 0;
+        Stack<Character> stk = new Stack<>();
+        while(count<n)
+        {
+            while(K > 0 && !stk.isEmpty() && stk.peek() > S.charAt(count))
+            {
+                stk.pop();
+                K--;
+            }
+            
+            stk.push(S.charAt(count));
+            count++;
+        }
+        
+        while(K --> 0)
+        {
+            stk.pop();
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        while(!stk.isEmpty())
+        {
+            char ch = stk.pop();
+            sb.append(ch);
+        }
+        
+        sb.reverse();
+        
+        while(sb.length() > 1 && sb.charAt(0) == '0')
+        {
+            sb.deleteCharAt(0);
+        }
+        
+        return sb.toString();
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+    }
+}
