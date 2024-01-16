@@ -1,0 +1,41 @@
+
+//User function Template for Java
+class Solution {
+    
+    
+    public int max_courses(int n, int total, int[] cost) 
+    {
+        //code here
+        Integer[][] dp = new Integer[n][total+1];
+        return check(cost, total, 0, dp);
+        
+    }
+    
+    
+    //recursive
+    public int check(int cost[], int total, int ind, Integer[][] dp)
+    {
+        
+        
+        if(ind == cost.length)
+        {
+            return 0;
+        }
+        
+        if(dp[ind][total] != null)
+        {
+            return dp[ind][total];
+        }
+        
+        if(cost[ind] <= total)
+        {
+            int price = cost[ind] - ((cost[ind] * 9)/10);
+            
+            return dp[ind][total] = Math.max(1 + check(cost, total - price, ind+1, dp), check(cost, total, ind+1, dp)); 
+        }
+        
+        return dp[ind][total] = check(cost, total, ind+1, dp);
+    }
+
+}
+
