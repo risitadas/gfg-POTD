@@ -1,0 +1,51 @@
+
+
+//User function Template for Java
+
+/*
+class Node {
+    int data;
+    Node left;
+    Node right;
+    Node(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}*/
+
+
+class Solution
+{
+    public static int step;
+
+    public static int distributeCandy(Node root)
+    {
+        //code here
+        
+        
+        step=0;
+        findMove(root);
+        return step;
+
+
+
+
+    }
+    
+    public static int findMove(Node curnode)
+    {
+        if(curnode == null) 
+        {
+            return 0;
+            
+        }
+        
+        int l = findMove(curnode.left);
+        int r = findMove(curnode.right);
+        step += Math.abs(l)+Math.abs(r);
+
+        return (l+r+curnode.data-1);
+    }
+
+}
