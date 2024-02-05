@@ -1,0 +1,11 @@
+
+//User function Template for Java
+class Solution{
+    int solve(int num1,int num2){
+        //code here
+    }
+
+    
+    
+}
+
