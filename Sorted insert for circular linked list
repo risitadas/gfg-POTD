@@ -1,0 +1,58 @@
+
+//User function Template for Java
+class Solution {
+    public Node sortedInsert(Node head, int data) 
+    {
+        // code here
+        
+        Node current = head;
+        
+        //new node
+        Node neww = new Node(data);
+
+        if (current == null) 
+        {
+            neww.next = neww;
+            return neww;
+            
+        }
+        else if (current.data >= neww.data) 
+        {
+            
+            while (current.next != head)
+            {
+                current = current.next;
+                
+            }
+
+            current.next = neww;
+            neww.next = head;
+            return neww;
+            
+            
+        }
+        else 
+        {
+            
+            while (current.next != head && current.next.data < neww.data)
+            {
+                current = current.next;
+            }
+
+            neww.next = current.next;
+            current.next = neww;
+            return head;
+            
+            
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
