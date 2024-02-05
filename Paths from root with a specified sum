@@ -1,0 +1,68 @@
+
+
+//User function Template for Java
+
+/*Tree Node
+class Node {
+    int data;
+    Node left;
+    Node right;
+    Node(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+} 
+*/
+
+class Solution
+{
+    public static ArrayList<ArrayList<Integer>> printPaths(Node root, int sum)
+    {
+        // code here
+        
+        
+        ArrayList<Integer> path = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        printPathsUtil(root, sum, 0, path, result);
+        return result;
+
+
+        
+        
+    }
+    
+    public static void printPathsUtil(Node currNode, int sum, int sumSoFar, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> result) 
+    {
+        if (currNode == null)
+        {
+            return;
+        }
+    
+        sumSoFar += currNode.data;
+        path.add(currNode.data);
+
+        if (sumSoFar == sum) 
+        {
+            result.add(new ArrayList<>(path));
+        }
+
+        if (currNode.left != null)
+        {
+            printPathsUtil(currNode.left, sum, sumSoFar, path, result);
+            
+        }
+
+        if (currNode.right != null)
+        {
+            printPathsUtil(currNode.right, sum, sumSoFar, path, result);
+            
+        }
+
+        path.remove(path.size() - 1);
+        
+        
+    }
+    
+    
+}
