@@ -1,0 +1,40 @@
+
+/* Node of a linked list
+ class Node {
+   int data;
+    Node next;
+    Node(int d)  { data = d;  next = null; }
+}
+ Linked List class
+class LinkedList
+{
+    Node head;  // head of list
+}
+This is method only submission.  You only need to complete the method. */
+
+class Solution
+{
+    
+    long MOD = 1000000007;
+    
+   long DecimalValue(Node head)
+   {
+ 	
+       
+ 		long result = 0;
+
+        while(head != null)
+        {
+        		result = ((result * 2) % MOD + head.data % MOD) % MOD;
+        		head = head.next;
+        }
+
+       return result;
+
+   }
+}
+
+
+
+
+
