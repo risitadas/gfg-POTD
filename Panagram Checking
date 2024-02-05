@@ -1,0 +1,47 @@
+//User function template for JAVA
+
+class Solution
+{
+    //Function to check if a string is Pangram or not.
+    public static boolean checkPangram  (String s) 
+    {
+        
+        // your code here
+      
+// int n
+
+        HashSet<Character> set = new HashSet<>();
+        String str = s.toLowerCase();
+        
+        for(int i=0;i<str.length();i++)
+        {
+            if(str.charAt(i) >= 'a' && str.charAt(i) <= 'z')
+            {
+                set.add(str.charAt(i));
+                
+                
+            }
+        }
+        
+        if(set.size()==26)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
