@@ -1,0 +1,60 @@
+
+//User function Template for Java
+
+// class Node  
+// { 
+//     int data; 
+//     Node left, right; 
+   
+//     public Node(int d)  
+//     { 
+//         data = d; 
+//         left = right = null; 
+//     } 
+// }
+
+class Solution
+{
+    //Function to return count of nodes at a given distance from leaf nodes.
+    int printKDistantfromLeaf(Node root, int k)
+    {
+        // Write your code here
+        
+        
+        HashMap<Integer, Node> hm = new HashMap<>();
+        HashSet<Node> hs = new HashSet<>();
+        dfs(hm, hs, 1, k, root);
+        return hs.size();
+
+        
+        
+        
+        
+        
+    }
+    
+    public void dfs(HashMap<Integer, Node> hm, HashSet<Node> hs, int l, int k, Node root)
+    {
+        if(root == null)
+        {
+            return;
+            
+        }
+        
+        hm.put(l, root);
+        
+        
+        if(root.left == null && root.right == null)
+        {
+            if(k >=l) return;
+            hs.add(hm.get(l-k));
+        }
+        
+        dfs(hm, hs, l+1, k, root.left);
+        dfs(hm, hs, l+1, k, root.right);
+    
+        
+    }
+
+
+}
