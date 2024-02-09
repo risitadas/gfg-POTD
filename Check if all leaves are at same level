@@ -1,0 +1,60 @@
+
+//User function Template for Java
+
+/* A Binary Tree node
+class Node
+{
+    int data;
+    Node left, right;
+
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}
+*/
+
+class Solution
+{
+    
+    
+    public boolean check(Node root)
+    {
+	// Your code here
+	
+	
+	    HashSet<Integer> result = new HashSet<>();
+	    dfs(root, 0, result);
+	    return result.size() == 1;
+	
+	
+	
+	
+	
+    }
+    
+    public void dfs(Node node, int i, HashSet<Integer> result)
+    {
+        
+        
+        if(node == null)
+        {
+            return;
+            
+        }
+        
+        dfs(node.left, i+1, result);
+        dfs(node.right, i+1, result);
+        
+        
+        if(node.left == null && node.right == null)
+        {
+            result.add(i);
+            
+        }
+        
+        
+        
+    }
+}
