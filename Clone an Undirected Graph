@@ -1,0 +1,75 @@
+
+//User function Template for Java
+
+
+/*
+    class Node{
+        int val;
+        ArrayList<Node> neighbors;
+        public Node(){
+            val = 0;
+            neighbors = new ArrayList<>();
+        }
+    
+        public Node(int val){
+            this.val = val;
+            neighbors = new ArrayList<>();
+        }
+    
+        public Node(int val, ArrayList<Node> neighbors){
+            this.val = val;
+            this.neighbors = neighbors;
+        }
+    }
+*/
+class Solution{
+    
+    Node cloneGraph(Node node)
+    {
+        
+        if(node == null)
+        {
+            return null;
+        }
+        
+        
+        HashMap<Node, Node> map = new HashMap<>();
+        return help(node, map);
+        
+        
+    }
+    
+    Node help(Node original, Map<Node, Node> map)
+    {
+        if(original == null)
+        {
+            
+            return null;
+        }
+        
+        if(map.containsKey(original))
+        {
+            
+            return map.get(original);
+        }
+        
+        
+        Node clone = new Node(original.val);
+        map.put(original, clone);
+        
+        for(Node neighbor : original.neighbors)
+        {
+        
+            clone.neighbors.add(help(neighbor, map));
+        
+            
+        }
+        
+        
+        return clone;
+    }
+    
+    
+    
+}
+
