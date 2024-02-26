@@ -1,0 +1,50 @@
+
+
+//User function Template for Java
+
+class Sol
+{
+    public static int wordBreak(String A, ArrayList<String> B )
+    {
+        //code here
+        
+        return dict(A, B, 0);
+        
+        
+    }
+    
+    public static int dict(String A, ArrayList<String> B, int word)
+    {
+        
+        if(word == A.length())
+        {
+            return 1;
+            
+        }
+        
+        String str = "";
+        
+        for(int i = word; i< A.length(); i++)
+        {
+            
+            str += A.charAt(i);
+            
+            if(B.contains(str))
+            {
+                
+                if(dict(A, B, i+1) == 1)
+                {
+                    
+                    return 1;
+                    
+                }
+            }
+        }
+        
+        return 0;
+        
+        
+        
+        
+    }
+}
