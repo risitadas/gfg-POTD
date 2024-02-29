@@ -1,0 +1,23 @@
+
+//User function Template for Java
+
+class Solution{
+    
+   
+    // Function for finding maximum and value pair
+    public static int[] game_with_number (int arr[], int n) 
+{
+        // Complete the function
+
+
+
+
+
+
+    }
+    
+    
+}
+
+
+
