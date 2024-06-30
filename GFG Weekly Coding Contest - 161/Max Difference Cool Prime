@@ -1,0 +1,49 @@
+// User function Template for C++
+//Back-end complete function Template for C++
+class Solution {
+  public:
+    int MaxDiff(vector<int> &A, int n) {
+        
+        
+        
+        int result = -1;
+        vector<int> mx(1001, -1), mn(1001, n + 1);
+        
+        for(int i = 0; i < n; i++)
+        {
+            mx[A[i]] = max(mx[A[i]], i);
+            mn[A[i]] = min(mn[A[i]], i);
+        }
+        
+        for(int i = 1; i <= 1000; i++) 
+        {
+            for(int j = i; j <= 1000; j++) 
+            {
+                int era = __gcd(i, j);
+                if(era != 1)
+                    continue;
+                if(mx[i] != -1 && mx[j] != -1) 
+                {
+                    result = max(result, abs(mx[i] - mn[j]));
+                    result = max(result, abs(mx[j] - mn[i]));
+                    
+                }
+                
+            }
+            
+        }
+        return result;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+};
