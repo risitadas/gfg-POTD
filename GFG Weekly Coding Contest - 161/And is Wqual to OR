@@ -1,0 +1,40 @@
+class Solution {
+    public static long ANDequalOR(int n, int[] arr) 
+    {
+        // code here
+        int pre = 0;
+        long result = 0, count = 0;
+        
+        
+
+        for(int i = 0; i < n; i++) 
+        {
+            if (arr[i] == arr[pre]) 
+            {
+                count++;
+            } 
+            else 
+            {
+                result += (count * (count + 1)) / 2;
+                pre = i;
+                count = 1;
+            }
+            
+        }
+        
+        result += (count * (count + 1)) / 2;
+
+        return result;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
