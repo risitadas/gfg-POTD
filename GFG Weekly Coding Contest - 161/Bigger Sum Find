@@ -1,0 +1,128 @@
+
+class Tree
+{
+    int n;
+    long bit[];
+    
+    public Tree(int n)
+    {
+        this.n = n+1;
+        this.bit = new long[this.n];
+        
+    }
+    
+    public void update(int index, long val)
+    {
+        index++;
+        
+        for(int i= index; i<n; i += (i&(-i))) 
+        {
+            bit[i]+=val;
+            
+        }
+        
+    }
+    
+    public long query(int l, int r)
+    {
+        return sum(r)-(l==0 ? 0 : sum(l-1));
+        
+    }
+    
+    public long sum(int index)
+    {
+        index++;
+        long s = 0;
+        
+        for(int i=index;i>0;i-=(i&(-i)))
+        {
+             s+=bit[i];
+             
+        }
+        
+        return s;
+        
+    }
+    
+}
+
+class Solution {
+    
+    
+    public static long[] BiggerFind(int n, int[] A, int q, int[][] queries) {
+        // code here
+        
+        ArrayList<int[]> query = new ArrayList<>();
+        
+        for(int i = 0; i < q; i++) 
+        {
+            query.add(new int[]{queries[i][0], queries[i][1], queries[i][2],i});
+            
+        }
+        
+        Collections.sort(query,(a, b) -> b[2] - a[2]);
+        ArrayList<int[]> values = new ArrayList<>();
+        
+        for(int i=0;i<n;i++) 
+        {
+            values.add(new int[]{i,A[i]});
+            
+        }
+        Collections.sort(values,(a, b) -> b[1] - a[1]);
+        
+        int j = 0;
+        long result[] = new long[q];
+        Tree obj = new Tree(n);
+        
+        for(int i = 0; i < q; i++)
+        {
+            int l = query.get(i)[0];
+            int r = query.get(i)[1];
+            int v = query.get(i)[2];
+            int index = query.get(i)[3];
+            
+            
+            while(j < n && values.get(j)[1] >= v) 
+            {
+                
+                obj.update(values.get(j)[0], values.get(j)[1]);
+                j++;
+                
+            }
+            result[index] = obj.query(l,r);
+            
+        }
+        return result;
+
+        
+        
+        /*
+        
+        BRUTE FORCE APPROACH
+        
+        long[] result = new long[q];
+        
+        for (int i = 0; i < q; i++) 
+        {
+            int left = queries[i][0];
+            int right = queries[i][1];
+            int threshold = queries[i][2];
+            long sum = 0;
+            
+            for(int j = left; j <= right; j++) 
+            {
+                if(A[j] >= threshold) sum += A[j];
+               
+            }
+            
+            result[i] = sum;
+        }
+        
+        return result;
+
+
+*/
+        
+        
+    }
+}
